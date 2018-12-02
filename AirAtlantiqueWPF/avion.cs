@@ -1,4 +1,4 @@
-﻿namespace AirAtlantiqueWPF
+namespace AirAtlantiqueWPF
 {
     internal class avion
     {

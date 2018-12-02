@@ -6,21 +6,39 @@
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         mc:Ignorable="d"
         Title="Air Atlantique" Height="600" Width="900">
-    <Grid>
-        <DataGrid Name="dataGrid1" />
-        <!-- <StackPanel>
-            <Label x:Name="Avions" Margin="0,0,794,0">Avions</Label>
-            <Label x:Name="Motorisation" Margin="0,0,794,0">Motorisation
-            </Label>
-            <Label x:Name="Nombre_davions" Margin="0,0,805,0">Nombre d'avions</Label>
-            <Label x:Name="Commands" Margin="0,0,794,0">Commandes</Label>
-            <Label x:Name="Passagers" Margin="0,0,794,0">Passagers</Label>
-            <Label x:Name="Premiere" Margin="0,0,794,0">nbr Première</Label>
-            <Label x:Name="Business" Margin="0,0,794,0">nbr Business</Label>
-            <Label x:Name="Prenium_Eco" Margin="0,0,794,0">nbr Prenium</Label>
-            <Label x:Name="Economy" Margin="0,0,794,0">nbr Economie</Label>
-            <Label x:Name="Type" Margin="0,0,794,0">Type</Label>
-        </StackPanel> -->
+    <Grid x:Name="grid">
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Height="26" Margin="55,18,55,2" Width="68">Type Avion</Label>
+        <Label Grid.Row="0" Grid.Column="1" Height="26" Margin="50,18,50,2" Width="78">Motorisation</Label>
+        <Label Grid.Row="0" Grid.Column="2" Height="26" Margin="42,18,41,2" Width="96">Nombre d'avion</Label>
+        <Label Grid.Row="0" Grid.Column="3" Height="26" Margin="51,18,51,2" Width="76">Commandes</Label>
+        <Label Grid.Row="0" Grid.Column="4" Height="26" Margin="59,18,59,2" Width="61">Passagers</Label>
     </Grid>
 </Window>
 <!--

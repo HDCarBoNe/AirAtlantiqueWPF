@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Media.Media3D;
 
 namespace AirAtlantiqueWPF
 {
@@ -20,36 +12,93 @@ namespace AirAtlantiqueWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Label lab = new Label();
-        static ListBox lb = new ListBox();
-        static DockPanel dp = new DockPanel();
+        
+        /*static ListBox lb = new ListBox();
+        static DockPanel dp = new DockPanel();*/
         public MainWindow()
         {
             InitializeComponent();
-            //Avions.Content = "Vrouuum!";
-            /*Db_connect db = new Db_connect();
-            this.Height = 600;
-            this.Width = 900;
-            db.Select();
-            List<string>[] listItem = db.Select();
-            Console.WriteLine(db.Select());
-            lb.ItemsSource = listItem[1];
-            dp.Children.Add(lb);
-            DockPanel.SetDock(lb, Dock.Left);*/
-            MySql.Data.MySqlClient.MySqlConnection connexion = Dao.getConnection();
-            string request = "select * from avions";
-            MySql.Data.MySqlClient.MySqlDataAdapter dataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(request, connexion);
-            List<avion> liste = new List<avion>();
-            System.Data.DataSet dataSet = new System.Data.DataSet("myDataSet");
-            dataAdapter.Fill(dataSet);
-            avion p = null;
-            foreach (System.Data.DataRow row in dataSet.Tables[0].Rows)
-            {
-                p = new avion((string)row[1], (string)row[2]);
-                liste.Add(p);
-            }
-            this.DataContext = liste;
+            //Creation de la nouvelle fenetre avions
+            Window avionWindow = new Window();
+            avionWindow.Title = "Air Atlantique";
+            // Création de la grid
+            Grid tableur = new Grid();
+            tableur.ShowGridLines = true;
 
+            Db_connect db = new Db_connect();
+            var avion = db.SelectAvion();
+            var moteur = db.SelectMoteur();
+            var nbrAvion = db.SelectNbrAvion();
+            var commandes = db.SelectCommandes();
+            var passagers = db.SelectPassager();
+            var premiere = db.SelectPremiere();
+            var business = db.SelectBusiness();
+            var premium = db.SelectPremium();
+            var economy = db.SelectEconomy();
+            var capacite = db.SelectCapacite();
+            var type = db.SelectType();
+            ColumnDefinition colDef1 = new ColumnDefinition();
+            tableur.ColumnDefinitions.Add(colDef1);
+            //Nom des colonnes
+            TextBlock col1 = new TextBlock();
+            col1.Text = "Type Avions";
+            col1.FontSize = 20;
+            Grid.SetColumn(col1,0);
+            Grid.SetRow(col1,0);
+            tableur.Children.Add(col1);
+
+            //taille de la liste
+            int taille = avion.Count;
+            // Insertion des valeurs contenu dans la bdd dans les row
+            for (int i = 0; i < taille; i++)
+            {
+                RowDefinition rowDef = new RowDefinition();
+                tableur.RowDefinitions.Add(rowDef);
+                Label lab = new Label();
+                lab.Name = "Avion" + i + "";
+                lab.Content = avion[i];
+                Grid.SetRow(lab,i+1);
+                Grid.SetColumn(lab,0);
+                tableur.Children.Add(lab);
+            }
+            //Colonne Motorisation
+            ColumnDefinition colDef2 = new ColumnDefinition();
+            tableur.ColumnDefinitions.Add(colDef2);
+            TextBlock col2 = new TextBlock();
+            col2.Text = "Motorisation";
+            col2.FontSize = 20;
+            Grid.SetColumn(col2, 1);
+            Grid.SetRow(col2, 0);
+            tableur.Children.Add(col2);
+            for (int i = 0; i < taille; i++)
+            {
+                Label lab = new Label();
+                lab.Name = "motorisation" + i + "";
+                lab.Content = moteur[i];
+                Grid.SetRow(lab, i + 1);
+                Grid.SetColumn(lab, 1);
+                tableur.Children.Add(lab);
+            }
+            //Colonne Nombre d'avions
+            ColumnDefinition colDef3 = new ColumnDefinition();
+            tableur.ColumnDefinitions.Add(colDef3);
+            TextBlock col3 = new TextBlock();
+            col2.Text = "Nombre d'avions";
+            col2.FontSize = 20;
+            Grid.SetColumn(col3, 2);
+            Grid.SetRow(col3, 0);
+            tableur.Children.Add(col3);
+            for (int i = 0; i < taille; i++)
+            {
+                Label lab = new Label();
+                lab.Name = "nbrAvion" + i + "";
+                lab.Content = nbrAvion[i];
+                Grid.SetRow(lab, i + 1);
+                Grid.SetColumn(lab, 2);
+                tableur.Children.Add(lab);
+            }
+            avionWindow.Content = tableur;
+            avionWindow.Show();
         }
     }
 }

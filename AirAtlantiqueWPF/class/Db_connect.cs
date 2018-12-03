@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using AirAtlantiqueWPF;
 using MySql.Data.MySqlClient;
 
 class Db_connect
@@ -42,7 +43,7 @@ class Db_connect
             try
             {
                 connection.Open();
-                MessageBox.Show("Connection OK");
+                //MessageBox.Show("Connection OK");
                 return true;
             }
             catch (MySqlException ex)
@@ -91,6 +92,22 @@ class Db_connect
         {
         }
 
+        /*public List<avion> listAvions()
+        {
+            List<avion> listAvions = new List<avion>();
+            if (this.OpenConnection()==true)
+            {
+                MySqlCommand cmd = this.connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM avions";
+                MySqlDataReader reader;
+                reader = cmd.ExecuteReader();
+                while (reader.Read()) 
+                {
+                    
+                    listAvions.Add(reader[]);
+                }
+            }
+        }*/
         //Select des avions
         public List<string> SelectAvion()
         {
@@ -162,11 +179,11 @@ class Db_connect
             }
         }
         //Select des Nombre d'avions
-        public List<string> SelectNbrAvion()
+        public List<int> SelectNbrAvion()
         {
 
             //Create a list to store the result
-            List<string> listNbrAvion = new List<string>();
+            List<int> listNbrAvion = new List<int>();
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -181,8 +198,7 @@ class Db_connect
                 while (reader.Read())
                 {
                     int NbrAvion = (int)reader["Nombre_davions"];
-                    string NbAvion = "" + listNbrAvion + "";
-                    listNbrAvion.Add(NbAvion);
+                    listNbrAvion.Add(NbrAvion);
                 }
                 reader.Close();
 
@@ -246,23 +262,14 @@ class Db_connect
                 //Creation d'un commande SQL 
                 MySqlCommand cmd = this.connection.CreateCommand();
                 //Requête SQL
-                cmd.CommandText = "SELECT Passagers from avions";
+                cmd.CommandText = "SELECT Passagers from avions WHERE Passagers IS NOT NULL";
                 // Execution de la command SQL
                 MySqlDataReader reader;
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    if (reader["Passagers"] == null)
-                    {
-                        int passager = -1;
-                        listPassagers.Add(passager);
-                    }
-                    else
-                    {
                         int passager = (int)reader["Passagers"];
-                        listPassagers.Add(passager);
-                    }
-                    
+                        listPassagers.Add(passager);                        
                 }
                 reader.Close();
 
@@ -278,7 +285,7 @@ class Db_connect
             }
         }
         //Select des Premiere
-        public List<string> SelectPremiere()
+        /*public List<string> SelectPremiere()
         {
 
             //Create a list to store the result
@@ -296,8 +303,7 @@ class Db_connect
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    int premieres = (int)reader["Premiere"];
-                    string premiere = "" + premieres;
+                    string premiere = reader["Premiere"].ToString();
                     listPremiere.Add(premiere);
                 }
                 reader.Close();
@@ -314,7 +320,7 @@ class Db_connect
             }
         }
     //Select des Business
-    public List<int> SelectBusiness()
+        public List<int> SelectBusiness()
         {
 
             //Create a list to store the result
@@ -487,7 +493,7 @@ class Db_connect
             {
                 return listType;
             }
-        }
+        }*/
 
     //Count statement
     public int Count()

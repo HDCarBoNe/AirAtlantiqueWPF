@@ -31,17 +31,20 @@ namespace AirAtlantiqueWPF
             var nbrAvion = db.SelectNbrAvion();
             var commandes = db.SelectCommandes();
             var passagers = db.SelectPassager();
-            var premiere = db.SelectPremiere();
+            /*var premiere = db.SelectPremiere();
             var business = db.SelectBusiness();
             var premium = db.SelectPremium();
             var economy = db.SelectEconomy();
             var capacite = db.SelectCapacite();
-            var type = db.SelectType();
+            var type = db.SelectType();*/
             ColumnDefinition colDef1 = new ColumnDefinition();
             tableur.ColumnDefinitions.Add(colDef1);
+            RowDefinition rowDef1 = new RowDefinition();
+            tableur.RowDefinitions.Add(rowDef1);
             //Nom des colonnes
             TextBlock col1 = new TextBlock();
             col1.Text = "Type Avions";
+            col1.HorizontalAlignment = HorizontalAlignment.Center;
             col1.FontSize = 20;
             Grid.SetColumn(col1,0);
             Grid.SetRow(col1,0);
@@ -54,18 +57,19 @@ namespace AirAtlantiqueWPF
             {
                 RowDefinition rowDef = new RowDefinition();
                 tableur.RowDefinitions.Add(rowDef);
-                Label lab = new Label();
-                lab.Name = "Avion" + i + "";
-                lab.Content = avion[i];
-                Grid.SetRow(lab,i+1);
-                Grid.SetColumn(lab,0);
-                tableur.Children.Add(lab);
+                TextBox textbox = new TextBox();
+                textbox.Name = "Avion" + i + "";
+                textbox.Text = avion[i];
+                Grid.SetRow(textbox,i+1);
+                Grid.SetColumn(textbox,0);
+                tableur.Children.Add(textbox);
             }
             //Colonne Motorisation
             ColumnDefinition colDef2 = new ColumnDefinition();
             tableur.ColumnDefinitions.Add(colDef2);
             TextBlock col2 = new TextBlock();
             col2.Text = "Motorisation";
+            col2.HorizontalAlignment = HorizontalAlignment.Center;
             col2.FontSize = 20;
             Grid.SetColumn(col2, 1);
             Grid.SetRow(col2, 0);
@@ -83,8 +87,9 @@ namespace AirAtlantiqueWPF
             ColumnDefinition colDef3 = new ColumnDefinition();
             tableur.ColumnDefinitions.Add(colDef3);
             TextBlock col3 = new TextBlock();
-            col2.Text = "Nombre d'avions";
-            col2.FontSize = 20;
+            col3.Text = "Nombre d'avions";
+            col3.HorizontalAlignment = HorizontalAlignment.Center;
+            col3.FontSize = 20;
             Grid.SetColumn(col3, 2);
             Grid.SetRow(col3, 0);
             tableur.Children.Add(col3);

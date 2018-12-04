@@ -23,6 +23,9 @@ namespace AirAtlantiqueWPF
             avionWindow.Title = "Air Atlantique";
             // Création de la grid
             Grid tableur = new Grid();
+            ScrollViewer scrollV1 = new ScrollViewer();
+            scrollV1.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+            
             tableur.ShowGridLines = true;
 
             Db_connect db = new Db_connect();
@@ -102,7 +105,8 @@ namespace AirAtlantiqueWPF
                 Grid.SetColumn(lab, 2);
                 tableur.Children.Add(lab);
             }
-            avionWindow.Content = tableur;
+            scrollV1.Content = tableur;
+            avionWindow.Content = scrollV1;
             avionWindow.Show();
         }
     }

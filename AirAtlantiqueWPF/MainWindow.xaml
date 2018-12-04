@@ -16,29 +16,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Height="26" Margin="55,18,55,2" Width="68">Type Avion</Label>
-        <Label Grid.Row="0" Grid.Column="1" Height="26" Margin="50,18,50,2" Width="78">Motorisation</Label>
-        <Label Grid.Row="0" Grid.Column="2" Height="26" Margin="42,18,41,2" Width="96">Nombre d'avion</Label>
-        <Label Grid.Row="0" Grid.Column="3" Height="26" Margin="51,18,51,2" Width="76">Commandes</Label>
-        <Label Grid.Row="0" Grid.Column="4" Height="26" Margin="59,18,59,2" Width="61">Passagers</Label>
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">Menu AirAtlantique</Label>
+        <Button Click="Avion_Click" Grid.Row="1" Grid.Column="0" >Gestion des Avions</Button>
     </Grid>
 </Window>
 <!--

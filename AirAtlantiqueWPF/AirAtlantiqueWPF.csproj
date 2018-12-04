@@ -76,6 +76,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Avions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,7 +88,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="class\Avions.cs" />
+    <Compile Include="Avions.xaml.cs">
+      <DependentUpon>Avions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="class\AvionsController.cs" />
     <Compile Include="class\Db_connect.cs" />
     <Compile Include="class\personne.cs" />
     <Compile Include="class\stock.cs" />

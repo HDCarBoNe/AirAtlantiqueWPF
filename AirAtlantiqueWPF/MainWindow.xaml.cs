@@ -15,7 +15,13 @@ namespace AirAtlantiqueWPF
         public MainWindow()
         {
             InitializeComponent();
-            new Avions().affichage();
+        }
+
+        private void Avion_Click(object sender, RoutedEventArgs e)
+        {
+            new Avions();
+            this.Close();
+            
         }
     }
 }

@@ -12,7 +12,7 @@ using MenuItem = System.Windows.Forms.MenuItem;
 using MainMenu = System.Windows.Forms.MainMenu;
 
 
-class Avions : Window
+class AvionsController
 {
     public void affichage()
     {

@@ -91,11 +91,11 @@
     <Compile Include="Avions.xaml.cs">
       <DependentUpon>Avions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="class\AvionsController.cs" />
-    <Compile Include="class\Db_connect.cs" />
-    <Compile Include="class\personne.cs" />
-    <Compile Include="class\stock.cs" />
-    <Compile Include="class\vols.cs" />
+    <Compile Include="Controller\AvionsController.cs" />
+    <Compile Include="Controller\Db_connect.cs" />
+    <Compile Include="Controller\personne.cs" />
+    <Compile Include="Controller\stock.cs" />
+    <Compile Include="Controller\vols.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

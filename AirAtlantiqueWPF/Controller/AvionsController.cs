@@ -24,7 +24,6 @@ namespace AirAtlantiqueWPF.Controller
         private int NbrPremium;
         private int NbrBusiness;
         private int NbrEco;
-        private int idStock;
         private int Type;
 
         public Avion() { }
@@ -112,6 +111,16 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string info)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(info));
+                AvionBdd.updateAvion(this);
+            }
+        }
     }
 
 }

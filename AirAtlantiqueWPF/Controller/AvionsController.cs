@@ -18,6 +18,7 @@ namespace AirAtlantiqueWPF.Controller
     {
         private int idAvion;
         private string ModeleAvion;
+        private string Motorisation;
         private int Capacite;
         private int EtatAvion;
         private int NbrPremium;
@@ -28,18 +29,17 @@ namespace AirAtlantiqueWPF.Controller
 
         public Avion() { }
 
-        public Avion(int id, string model, int capa, int etat, int prem, int busi, int eco, int stok, int type)
+        public Avion(int id, string model, string moto,  int capa, int prem, int busi, int eco, int etat, int type)
         {
             this.idAvion = id;
             this.ModeleAvion = model;
+            this.Motorisation = moto;
             this.Capacite = capa;
             this.EtatAvion = etat;
             this.NbrPremium = prem;
             this.NbrBusiness = busi;
             this.NbrEco = eco;
-            this.idStock = stok;
             this.Type = type;
-
         }
 
         public int idAvionProperty
@@ -53,6 +53,14 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.ModeleAvion = value;
+            }
+        }
+        public string MotorisationProperty
+        {
+            get { return Motorisation; }
+            set
+            {
+                this.Motorisation = value;
             }
         }
         public int CapaciteProperty
@@ -93,14 +101,6 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.NbrEco = value;
-            }
-        }
-        public int idStockProperty
-        {
-            get { return idStock; }
-            set
-            {
-                this.idStock = value;
             }
         }
         public int TypeProperty

@@ -39,10 +39,15 @@ namespace AirAtlantiqueWPF.Controller
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                Avion a = new AirAtlantiqueWPF.Controller.Avion(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8));
+                Avion a = new Avion(reader.GetInt32(0), reader.GetString(1),reader.GetString(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8));
                 l.Add(a);
             }
             reader.Close();
+        }
+
+        public static void updateAvion(Avion a)
+        {
+            string query ="UPDATE avions SET modele=\"" + a.ModelAvionProperty +"\", capacite=\"" + a.CapaciteProperty + "\", etat=\"" + a.EtatAvionProperty + "\", nb_premium=\""+ a.NbrPremiumProperty + "\", nb_business\""+ a.NbrBusinessProperty + "\", ";
         }
     }
 }

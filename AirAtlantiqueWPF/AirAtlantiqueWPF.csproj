@@ -91,6 +91,7 @@
     <Compile Include="Avions.xaml.cs">
       <DependentUpon>Avions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\AvionBdd.cs" />
     <Compile Include="Controller\AvionsController.cs" />
     <Compile Include="Controller\Db_connect.cs" />
     <Compile Include="Controller\personne.cs" />

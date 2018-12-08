@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using AirAtlantiqueWPF;
+using AirAtlantiqueWPF.Controller;
 using MySql.Data.MySqlClient;
 
 class Db_connect
@@ -92,9 +93,9 @@ class Db_connect
         {
         }
 
-        /*public List<avion> listAvions()
+        /*public List<Avion> listAvions()
         {
-            List<avion> listAvions = new List<avion>();
+            List<Avion> listAvions = new List<Avion>();
             if (this.OpenConnection()==true)
             {
                 MySqlCommand cmd = this.connection.CreateCommand();
@@ -104,12 +105,12 @@ class Db_connect
                 while (reader.Read()) 
                 {
                     
-                    listAvions.Add(reader[]);
+                    listAvions.Add(reader["id"]);
                 }
             }
-        }*/
+        }/*
         //Select des avions
-        public List<string> SelectAvion()
+        /*public List<string> SelectAvion()
         {
         
             //Create a list to store the result

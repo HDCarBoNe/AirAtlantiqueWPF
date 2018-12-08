@@ -16,7 +16,22 @@
             </MenuItem>
         </Menu>
         <ScrollViewer x:Name="ContentScroll">
-            <Grid x:Name="Grid"></Grid>
+            <Grid x:Name="Grid">
+                <Grid.RowDefinitions><RowDefinition></RowDefinition></Grid.RowDefinitions>
+                <DataGrid Name="listeAvion" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeAvion_OnSelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Binding="{Binding idAvionProperty, Mode=OneWay}" />
+                        <DataGridTextColumn Header="Modele" Binding="{Binding ModelAvionProperty, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="capacite" Binding="{Binding CapaciteProperty, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="etat" Binding="{Binding EtatAvionProperty, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="nb_premium" Binding="{Binding NbrPremiumProperty, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="nb_business" Binding="{Binding NbrBusinessProperty, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="nb_eco" Binding="{Binding NbrEcoProperty, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="Stock" Binding="{Binding idStockProperty, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="type" Binding="{Binding TypeProperty, Mode=TwoWay}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </ScrollViewer>
     </DockPanel>
     

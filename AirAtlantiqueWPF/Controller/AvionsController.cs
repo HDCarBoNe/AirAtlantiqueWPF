@@ -26,6 +26,22 @@ namespace AirAtlantiqueWPF.Controller
         private int idStock;
         private int Type;
 
+        public Avion() { }
+
+        public Avion(int id, string model, int capa, int etat, int prem, int busi, int eco, int stok, int type)
+        {
+            this.idAvion = id;
+            this.ModeleAvion = model;
+            this.Capacite = capa;
+            this.EtatAvion = etat;
+            this.NbrPremium = prem;
+            this.NbrBusiness = busi;
+            this.NbrEco = eco;
+            this.idStock = stok;
+            this.Type = type;
+
+        }
+
         public int idAvionProperty
         {
             get { return idAvion; }
@@ -85,6 +101,14 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.idStock = value;
+            }
+        }
+        public int TypeProperty
+        {
+            get { return Type; }
+            set
+            {
+                this.Type = value;
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

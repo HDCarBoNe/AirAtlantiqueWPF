@@ -1,0 +1,24 @@
+﻿<Window x:Class="AirAtlantiqueWPF.Vols"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirAtlantiqueWPF"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid x:Name="Grid">
+        <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="792">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding idAvionProperty, Mode=OneWay}" />
+                <DataGridTextColumn Header="depart_prevu" Binding="{Binding ModelAvionProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="depart_reel" Binding="{Binding MotorisationProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="arrive_prevu" Binding="{Binding CapaciteProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="arrive_reel" Binding="{Binding EtatAvionProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="avion" Binding="{Binding NbrPremiumProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Aeroport_Depart" Binding="{Binding NbrBusinessProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Aeroport_Arrive" Binding="{Binding NbrEcoProperty, Mode=TwoWay}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

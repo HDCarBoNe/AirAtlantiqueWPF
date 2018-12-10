@@ -11,12 +11,7 @@ namespace AirAtlantiqueWPF.Controller
     class AvionBdd
     {
         private static MySqlConnection connection = Db_connect.getConnection();
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
-        private int port;
-
+    
         public void SelectAvion(ObservableCollection<Avion> l)
         {
             connection.Open();

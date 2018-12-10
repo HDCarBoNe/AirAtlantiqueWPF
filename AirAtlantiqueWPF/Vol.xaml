@@ -14,13 +14,14 @@
             <Label Content="Depart Prevu"></Label>
             <DatePicker Name="departprevu"/>
             <Label Content="Arrive Prevu"></Label>
+
             <DatePicker Name="arriveprevu"/>
             <Label Content="Avion"></Label>
             <ComboBox x:Name="idAvion" DisplayMemberPath="idAvionProperty"></ComboBox>
             <Label Content="Aeroport Depart"></Label>
-            <ComboBox Name="id_dep"></ComboBox>
+            <ComboBox x:Name="id_dep" DisplayMemberPath="AfficheProperty"></ComboBox>
             <Label Content="Aeroport Arrive"></Label>
-            <ComboBox Name="id_arrive"></ComboBox>
+            <ComboBox Name="id_arrive" DisplayMemberPath="AfficheProperty"></ComboBox>
             <Label></Label>
             <Button x:Name="addButton" Content="Ajouter" Height="25"></Button>
         </StackPanel>

@@ -28,15 +28,20 @@ namespace AirAtlantiqueWPF
         Vols vols;
         VolsBdd vbdd = new VolsBdd();
         AvionBdd abdd = new AvionBdd();
+        AeroportBdd aebdd = new AeroportBdd();
         ObservableCollection<Avion> la = new ObservableCollection<Avion>();
         ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
-       
+        ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
+
         public Vol()
         {
             
             InitializeComponent();
             abdd.SelectAvion(la);
             vbdd.SelectVols(lv);
+            aebdd.SelectAeroports(lae);
+            id_dep.ItemsSource = lae;
+            id_arrive.ItemsSource = lae;
             listeVols.ItemsSource = lv;
             idAvion.ItemsSource = la;          
             this.Title = "Air Atlantique Gestion des Vols";

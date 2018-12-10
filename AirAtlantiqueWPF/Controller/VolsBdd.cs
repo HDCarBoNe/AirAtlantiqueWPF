@@ -20,10 +20,10 @@ namespace AirAtlantiqueWPF.Controller
         public bool Initialize()
         {
             server = "localhost";
-            database = "dbb";
-            uid = "root";
-            password = "";
-            port = 3306;
+            database = "airatlantiquecsharp";
+            uid = "dev";
+            password = "azerty123";
+            port = 3307;
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "Port=" + port + ";" + "DATABASE=" +
                                database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";

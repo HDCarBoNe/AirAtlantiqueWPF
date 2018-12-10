@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
+
     <Grid x:Name="Grid">
         <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="792">
             <DataGrid.Columns>
@@ -17,7 +18,6 @@
                 <DataGridTextColumn Header="avion" Binding="{Binding idavionProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Aeroport_Depart" Binding="{Binding IdDepProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Aeroport_Arrive" Binding="{Binding IdArriveProperty, Mode=TwoWay}" />
-
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

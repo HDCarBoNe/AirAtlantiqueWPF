@@ -7,8 +7,24 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
 
+
+
     <Grid x:Name="Grid">
-        <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="792">
+        <StackPanel Margin="10,0,565,10">
+            <Label Content="Depart Prevu"></Label>
+            <DatePicker Name="departprevu"/>
+            <Label Content="Arrive Prevu"></Label>
+            <DatePicker Name="arriveprevu"/>
+            <Label Content="Avion"></Label>
+            <ComboBox x:Name="idAvion" DisplayMemberPath="idAvionProperty"></ComboBox>
+            <Label Content="Aeroport Depart"></Label>
+            <ComboBox Name="id_dep"></ComboBox>
+            <Label Content="Aeroport Arrive"></Label>
+            <ComboBox Name="id_arrive"></ComboBox>
+            <Label></Label>
+            <Button x:Name="addButton" Content="Ajouter" Height="25"></Button>
+        </StackPanel>
+        <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="550" Margin="242,0,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="id" Binding="{Binding idVolProperty, Mode=OneWay}" />
                 <DataGridTextColumn Header="depart_prevu" Binding="{Binding DepartprevuProperty, Mode=TwoWay}" />
@@ -20,5 +36,6 @@
                 <DataGridTextColumn Header="Aeroport_Arrive" Binding="{Binding IdArriveProperty, Mode=TwoWay}" />
             </DataGrid.Columns>
         </DataGrid>
+       
     </Grid>
 </Window>

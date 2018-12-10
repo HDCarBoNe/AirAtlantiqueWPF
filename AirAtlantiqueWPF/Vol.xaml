@@ -1,4 +1,4 @@
-﻿<Window x:Class="AirAtlantiqueWPF.Vols"
+﻿<Window x:Class="AirAtlantiqueWPF.Vol"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,14 +9,14 @@
     <Grid x:Name="Grid">
         <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="792">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding idAvionProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="depart_prevu" Binding="{Binding ModelAvionProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="depart_reel" Binding="{Binding MotorisationProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="arrive_prevu" Binding="{Binding CapaciteProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="arrive_reel" Binding="{Binding EtatAvionProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="avion" Binding="{Binding NbrPremiumProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Aeroport_Depart" Binding="{Binding NbrBusinessProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Aeroport_Arrive" Binding="{Binding NbrEcoProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="id" Binding="{Binding idVolProperty, Mode=OneWay}" />
+                <DataGridTextColumn Header="depart_prevu" Binding="{Binding DepartprevuProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="depart_reel" Binding="{Binding  DepartreelProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="arrive_prevu" Binding="{Binding ArriveprevuProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="arrive_reel" Binding="{Binding ArrivereelProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="avion" Binding="{Binding idavionProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Aeroport_Depart" Binding="{Binding IdDepProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Aeroport_Arrive" Binding="{Binding IdArriveProperty, Mode=TwoWay}" />
 
             </DataGrid.Columns>
         </DataGrid>

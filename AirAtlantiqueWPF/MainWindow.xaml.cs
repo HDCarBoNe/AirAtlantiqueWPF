@@ -23,5 +23,13 @@ namespace AirAtlantiqueWPF
             this.Close();
             
         }
+
+        private void Vols_Click(object sender, RoutedEventArgs e)
+        {
+            new Vol();
+            this.Close();
+
+        }
+
     }
 }

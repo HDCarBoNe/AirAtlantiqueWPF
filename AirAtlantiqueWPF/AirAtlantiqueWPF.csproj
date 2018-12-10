@@ -76,6 +76,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vols.xaml.cs">
+      <DependentUpon>Vols.xaml</DependentUpon>
+    </Compile>
     <Page Include="Avions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,11 +99,16 @@
     <Compile Include="Controller\Db_connect.cs" />
     <Compile Include="Controller\personne.cs" />
     <Compile Include="Controller\stock.cs" />
-    <Compile Include="Controller\vols.cs" />
+    <Compile Include="Controller\VolsBdd.cs" />
+    <Compile Include="Controller\VolsController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vols.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

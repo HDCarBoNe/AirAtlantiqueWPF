@@ -19,16 +19,19 @@ using Label = System.Windows.Controls.Label;
 using MenuItem = System.Windows.Controls.MenuItem;
 using TextBox = System.Windows.Controls.TextBox;
 
+
+
 namespace AirAtlantiqueWPF
 {
-    public partial class Vols : Window
+    public partial class Vol : Window
     {
-        Vols vol;
+        Vols vols;
         VolsBdd vbdd = new VolsBdd();
         ObservableCollection<Vols> la = new ObservableCollection<Vols>();
        
-        public Vols()
+        public Vol()
         {
+            
             InitializeComponent();
             vbdd.Initialize();
             vbdd.SelectVols(la);

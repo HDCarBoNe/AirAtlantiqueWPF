@@ -23,6 +23,7 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">Menu AirAtlantique</Label>
         <Button Click="Avion_Click" Grid.Row="1" Grid.Column="0" >Gestion des Avions</Button>
+        <Button Click="Vols_Click" Grid.Row="1" Grid.Column="0" Margin="0,26,0,-26" >Gestion des Vols</Button>
     </Grid>
 </Window>
 <!--

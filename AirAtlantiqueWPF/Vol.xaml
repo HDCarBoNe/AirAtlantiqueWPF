@@ -14,7 +14,7 @@
             <Label Content="Depart Prevu"></Label>
             <DatePicker Name="departprevu"/>
             <Label Content="Arrive Prevu"></Label>
-
+           
             <DatePicker Name="arriveprevu"/>
             <Label Content="Avion"></Label>
             <ComboBox x:Name="idAvion" DisplayMemberPath="idAvionProperty"></ComboBox>

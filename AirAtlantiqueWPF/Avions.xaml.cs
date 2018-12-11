@@ -38,11 +38,6 @@ namespace AirAtlantiqueWPF
             this.Show();
         }
 
-        private void ListeAvion_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void AddButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (modeleTextBox.Text != "" && motorisationTextBox.Text != "" && capaciteTextBox.Text != "" &&
@@ -54,6 +49,20 @@ namespace AirAtlantiqueWPF
                 new Avions();
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Merci de remplir tout les champs");
+            }
+        }
+
+        private void UpdateButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ListeAvion_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

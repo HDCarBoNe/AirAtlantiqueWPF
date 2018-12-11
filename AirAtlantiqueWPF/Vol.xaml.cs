@@ -27,15 +27,23 @@ namespace AirAtlantiqueWPF
     {
         Vols vols;
         VolsBdd vbdd = new VolsBdd();
-        ObservableCollection<Vols> la = new ObservableCollection<Vols>();
-       
+        AvionBdd abdd = new AvionBdd();
+        AeroportBdd aebdd = new AeroportBdd();
+        ObservableCollection<Avion> la = new ObservableCollection<Avion>();
+        ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
+        ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
+
         public Vol()
         {
             
             InitializeComponent();
-            vbdd.Initialize();
-            vbdd.SelectVols(la);
-            listeVols.ItemsSource = la;
+            abdd.SelectAvion(la);
+            vbdd.SelectVols(lv);
+            aebdd.SelectAeroports(lae);
+            id_dep.ItemsSource = lae;
+            id_arrive.ItemsSource = lae;
+            listeVols.ItemsSource = lv;
+            idAvion.ItemsSource = la;          
             this.Title = "Air Atlantique Gestion des Vols";
             this.Show();
         }
@@ -43,7 +51,12 @@ namespace AirAtlantiqueWPF
         private void ListeVols_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             throw new NotImplementedException();
+
         }
+
+       
+
+
     }
 }
 

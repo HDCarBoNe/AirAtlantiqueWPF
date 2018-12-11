@@ -10,28 +10,8 @@ namespace AirAtlantiqueWPF.Controller
 {
     class AvionBdd
     {
-        private static MySqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
-        private int port;
-
-        public bool Initialize()
-        {
-            server = "localhost";
-            database = "airatlantiquecsharp";
-            uid = "dev";
-            password = "azerty123";
-            port = 3307;
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "Port=" + port + ";" + "DATABASE=" +
-                               database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
-            connection = new MySqlConnection(connectionString);
-            
-            return true;
-        }
+        private static MySqlConnection connection = Db_connect.getConnection();
+    
         public void SelectAvion(ObservableCollection<Avion> l)
         {
             connection.Open();
@@ -60,7 +40,7 @@ namespace AirAtlantiqueWPF.Controller
         public void insertAvion(string mo, string moto, int capa, int prem, int busi, int eco, int etat, string type)
         {
             connection.Open();
-            string query = "INSERT INTO avions(modele, motorisation, capacite, nb_place_premium, nb_place_business, nb_place_eco, etat, type) VALUES(@mo,@moto,@capa,@prem,@busi,@eco,@etat,@type)";
+            string query = "INSERT INTO avions(modele, motorisation, capacite, nb_place_premiere, nb_place_buissness, nb_place_eco, etat, type) VALUES(@mo,@moto,@capa,@prem,@busi,@eco,@etat,@type)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@mo", mo);
             cmd.Parameters.AddWithValue("@moto", moto);

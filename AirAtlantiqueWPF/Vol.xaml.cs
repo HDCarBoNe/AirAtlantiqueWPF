@@ -68,8 +68,6 @@ namespace AirAtlantiqueWPF
        
             timedep = departprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + departheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
             timearrive = arriveprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + arriveheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-            MessageBox.Show(timedep);
-
 
             if (arriveprevu.Text != "" && departheure.Text != "" && arriveprevu.Text != "" &&
                 arriveprevu.Text != "" && idAvion.Text != "" && id_dep.Text != "" &&

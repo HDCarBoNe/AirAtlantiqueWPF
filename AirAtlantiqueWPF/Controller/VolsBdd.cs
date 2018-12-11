@@ -58,13 +58,13 @@ namespace AirAtlantiqueWPF.Controller
         {
 
             connection.Open();
-            string query = "INSERT INTO vols( depart_prevu, arrive_prevu, idavion, id_dep, id_arrive) VALUES( @depart_prevu, @depart_reel, @arrive_prevu, @arrive_reel, @idavion, @id_dep, @id_arrive)";
+            string query = "INSERT INTO vols( depart_prevu, arrive_prevu, id_avion, id_dep, id_arrive) VALUES( @depart_prevu, @arrive_prevu, @id_avion, @id_dep, @id_arrive)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@depart_prevu", departprevu);
-            cmd.Parameters.AddWithValue("@depart_reel", "");
+          //  cmd.Parameters.AddWithValue("@depart_reel", "");
             cmd.Parameters.AddWithValue("@arrive_prevu", arriveprevu);
-            cmd.Parameters.AddWithValue("@arrive_reel", "");
-            cmd.Parameters.AddWithValue("@idavion", idavion);
+          //  cmd.Parameters.AddWithValue("@arrive_reel", "");
+            cmd.Parameters.AddWithValue("@id_avion", idavion);
             cmd.Parameters.AddWithValue("@id_dep", id_dep);
             cmd.Parameters.AddWithValue("@id_arrive", id_arrive);
             

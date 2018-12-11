@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 //using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -18,6 +19,7 @@ using AirAtlantiqueWPF.Controller;
 using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using Label = System.Windows.Controls.Label;
 using MenuItem = System.Windows.Controls.MenuItem;
+using MessageBox = System.Windows.MessageBox;
 using TextBox = System.Windows.Controls.TextBox;
 
 namespace AirAtlantiqueWPF
@@ -64,6 +66,12 @@ namespace AirAtlantiqueWPF
         private void ListeAvion_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void ListeAvion_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show(((Avion)listeAvion.SelectedCells[1].Item).ModelAvionProperty);
+            //throw new NotImplementedException();
         }
     }
 }

@@ -28,14 +28,5 @@
     </Grid>
 </Window>
 <!--
-<Label x:Name="data_Avions" Content="" Margin="130,0,655,0"/>
-<Label x:Name="data_Motorisation" Content="" Margin="130,0,655,0"/>
-<Label x:Name="data_Nombre_davions" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Commands" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Passagers" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Premiere" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Business" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Prenium_Eco" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Economy" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Type" Content="" Margin="130,0,655,0"></Label>
-<Label x:Name="data_Nombre_davions_Copy" Content="" Margin="130,0,655,0"/> -->
+    <frame x:Name="coucou" NavigationVisibility="hidden" background="black"/>-->
+    

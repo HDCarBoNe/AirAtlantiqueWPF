@@ -21,6 +21,7 @@ namespace AirAtlantiqueWPF
         {
             new Avions();
             this.Close();
+            //coucou.content = new Avions();
             
         }
 

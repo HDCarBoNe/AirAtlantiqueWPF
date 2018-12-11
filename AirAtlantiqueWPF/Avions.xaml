@@ -45,7 +45,7 @@
                     <RowDefinition Height="204*"></RowDefinition>
                     <RowDefinition Height="247*"/>
                 </Grid.RowDefinitions>
-                <DataGrid Name="listeAvion" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Right"  Width="450" Grid.RowSpan="2" RenderTransformOrigin="0.708,0.498">
+                <DataGrid Name="listeAvion" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Right"  Width="450" Grid.RowSpan="2" RenderTransformOrigin="0.708,0.498" SelectionChanged="ListeAvion_OnSelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="id" Binding="{Binding idAvionProperty, Mode=OneWay}" />
                         <DataGridTextColumn Header="Modele" Binding="{Binding ModelAvionProperty, Mode=TwoWay}" />

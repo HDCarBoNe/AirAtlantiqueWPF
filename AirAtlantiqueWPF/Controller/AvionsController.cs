@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media.Media3D;
-//using System.Windows.Forms;
-using MenuItem = System.Windows.Forms.MenuItem;
-using MainMenu = System.Windows.Forms.MainMenu;
+﻿using System.ComponentModel;
+
+
 
 namespace AirAtlantiqueWPF.Controller
 {
@@ -25,8 +15,6 @@ namespace AirAtlantiqueWPF.Controller
         private int NbrBusiness;
         private int NbrEco;
         private int Type;
-
-        public Avion() { }
 
         public Avion(int id, string model, string moto,  int capa, int prem, int busi, int eco, int etat, int type)
         {
@@ -52,6 +40,8 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.ModeleAvion = value;
+                OnPropertyChanged("ModelAvionProperty");
+
             }
         }
         public string MotorisationProperty
@@ -60,6 +50,8 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.Motorisation = value;
+                OnPropertyChanged("MotorisationProperty");
+
             }
         }
         public int CapaciteProperty
@@ -68,6 +60,8 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.Capacite = value;
+                OnPropertyChanged("CapaciteProperty");
+
             }
         }
         public int EtatAvionProperty
@@ -76,6 +70,8 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.EtatAvion = value;
+                OnPropertyChanged("EtatAvionProperty");
+
             }
         }
         public int NbrPremiumProperty
@@ -84,6 +80,8 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.NbrPremium = value;
+                OnPropertyChanged("NbrPremiumProperty");
+
             }
         }
         public int NbrBusinessProperty
@@ -92,6 +90,8 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.NbrBusiness = value;
+                OnPropertyChanged("NbrBusinessProperty");
+
             }
         }
         public int NbrEcoProperty
@@ -100,6 +100,8 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.NbrEco = value;
+                OnPropertyChanged("NbrEcoProperty");
+
             }
         }
         public int TypeProperty
@@ -108,6 +110,7 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 this.Type = value;
+                OnPropertyChanged("TypeProperty");
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

@@ -18,6 +18,7 @@ using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using Label = System.Windows.Controls.Label;
 using MenuItem = System.Windows.Controls.MenuItem;
 using TextBox = System.Windows.Controls.TextBox;
+using System.Globalization;
 
 
 
@@ -32,6 +33,10 @@ namespace AirAtlantiqueWPF
         ObservableCollection<Avion> la = new ObservableCollection<Avion>();
         ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
         ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
+        string timedep;
+        
+
+
 
         public Vol()
         {
@@ -46,6 +51,9 @@ namespace AirAtlantiqueWPF
             idAvion.ItemsSource = la;          
             this.Title = "Air Atlantique Gestion des Vols";
             this.Show();
+           
+
+
         }
 
         private void ListeVols_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,7 +62,11 @@ namespace AirAtlantiqueWPF
 
         }
 
+        private void AddButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
        
+           
+        }
 
 
     }

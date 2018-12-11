@@ -31,11 +31,12 @@ namespace AirAtlantiqueWPF
         public Avions()
         {
             InitializeComponent();
-            avbdd.Initialize();
             avbdd.SelectAvion(la);
             listeAvion.ItemsSource = la;
             this.Title = "Air Atlantique Gestion des Avions";
             this.Show();
+         
+          
         }
 
         private void AddButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)

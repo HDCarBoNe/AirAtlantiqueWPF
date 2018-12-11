@@ -34,7 +34,7 @@ namespace AirAtlantiqueWPF
         ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
         ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
         string timedep;
-        
+        string timearrive;
 
 
 
@@ -64,11 +64,33 @@ namespace AirAtlantiqueWPF
 
         private void AddButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var cultureSource = new CultureInfo("fr-FR", false);
        
-           
+            timedep = departprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + departheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+            timearrive = arriveprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + arriveheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+            MessageBox.Show(timedep);
+
+
+            if (arriveprevu.Text != "" && departheure.Text != "" && arriveprevu.Text != "" &&
+                arriveprevu.Text != "" && idAvion.Text != "" && id_dep.Text != "" &&
+                id_arrive.Text != "")
+            {
+                vbdd.InsertVols(timedep,timearrive, Int32.Parse(idAvion.Text), Int32.Parse(id_dep.Text.Split('-')[0]), Int32.Parse(id_arrive.Text.Split('-')[0]));
+                MessageBox.Show("Vol Ajouté");
+                new Vols();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Merci de remplir tout les champs");
+            }
+
+
+
+
         }
 
-
+        
     }
 }
 

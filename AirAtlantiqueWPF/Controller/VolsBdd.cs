@@ -11,7 +11,8 @@ namespace AirAtlantiqueWPF.Controller
     class VolsBdd
     {
         private static MySqlConnection connection = Db_connect.getConnection();
-       
+        private string value2;
+        private string value4;
         public void SelectVols(ObservableCollection<Vols> l)
         {
              connection.Open();
@@ -20,7 +21,26 @@ namespace AirAtlantiqueWPF.Controller
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-               Vols a = new Vols(reader.GetInt32(0), reader.GetDateTime(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDateTime(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7));
+             
+                if (reader.IsDBNull(2))
+                {
+                     value2 = "Pas Parti";
+                }
+                else
+                {
+                    value2 = reader.GetString(2);
+                }
+
+                if (reader.IsDBNull(4))
+                {
+                    value4 = "Pas Arrivé";
+                }
+                else
+                {
+                    value4 = reader.GetString(4);
+                }
+
+                Vols a = new Vols(reader.GetInt32(0), reader.GetString(1), value2, reader.GetString(3), value4, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7));
                 l.Add(a);
             }
             reader.Close();
@@ -34,17 +54,17 @@ namespace AirAtlantiqueWPF.Controller
             connection.Close();
         }
 
-        public void InsertVols(DateTime departprevu, DateTime departreel, DateTime arriveprevu, DateTime arrivereel, int idavion, int id_dep, int id_arrive)
+        public void InsertVols(string departprevu, string arriveprevu, int idavion, int id_dep, int id_arrive)
         {
 
             connection.Open();
-            string query = "INSERT INTO vols( depart_prevu, depart_reel, arrive_prevu, arrive_reel, idavion, id_dep, id_arrive) VALUES( @depart_prevu, @depart_reel, @arrive_prevu, @arrive_reel, @idavion, @id_dep, @id_arrive)";
+            string query = "INSERT INTO vols( depart_prevu, arrive_prevu, id_avion, id_dep, id_arrive) VALUES( @depart_prevu, @arrive_prevu, @id_avion, @id_dep, @id_arrive)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@depart_prevu", departprevu);
-            cmd.Parameters.AddWithValue("@depart_reel", departreel);
+          //  cmd.Parameters.AddWithValue("@depart_reel", "");
             cmd.Parameters.AddWithValue("@arrive_prevu", arriveprevu);
-            cmd.Parameters.AddWithValue("@arrive_reel", arrivereel);
-            cmd.Parameters.AddWithValue("@idavion", idavion);
+          //  cmd.Parameters.AddWithValue("@arrive_reel", "");
+            cmd.Parameters.AddWithValue("@id_avion", idavion);
             cmd.Parameters.AddWithValue("@id_dep", id_dep);
             cmd.Parameters.AddWithValue("@id_arrive", id_arrive);
             

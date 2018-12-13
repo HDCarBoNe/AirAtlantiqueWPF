@@ -14,17 +14,17 @@ namespace AirAtlantiqueWPF.Controller
 
     {
         private int idvols;
-        private DateTime departprevu;
-        private DateTime departreel;
-        private DateTime arriveprevu;
-        private DateTime arrivereel;
+        private string departprevu;
+        private string departreel;
+        private string arriveprevu;
+        private string arrivereel;
         private int idavion;
         private int id_dep;
         private int id_arrive;
 
         public Vols() { }
 
-        public Vols(int idvols, DateTime departprevu, DateTime departreel, DateTime arriveprevu, DateTime arrivereel, int idavion, int id_dep, int id_arrive)
+        public Vols(int idvols, string departprevu, string departreel, string arriveprevu, string arrivereel, int idavion, int id_dep, int id_arrive)
         {
             this.idvols = idvols;
             this.departprevu = departprevu;
@@ -45,7 +45,7 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
 
-        public DateTime DepartprevuProperty
+        public string DepartprevuProperty
         {
             get { return departprevu; }
             set
@@ -54,7 +54,7 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
 
-        public DateTime DepartreelProperty
+        public string DepartreelProperty
         {
             get { return departreel; }
             set
@@ -63,7 +63,7 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
 
-        public DateTime ArriveprevuProperty
+        public string ArriveprevuProperty
         {
             get { return arriveprevu; }
             set
@@ -72,7 +72,7 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
 
-        public DateTime ArrivereelProperty
+        public string ArrivereelProperty
         {
             get { return arrivereel; }
             set

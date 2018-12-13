@@ -24,7 +24,7 @@ using System.Globalization;
 
 namespace AirAtlantiqueWPF
 {
-    public partial class Vol : Window
+    public partial class Vol : Page
     {
         Vols vols;
         VolsBdd vbdd = new VolsBdd();
@@ -50,7 +50,6 @@ namespace AirAtlantiqueWPF
             listeVols.ItemsSource = lv;
             idAvion.ItemsSource = la;          
             this.Title = "Air Atlantique Gestion des Vols";
-            this.Show();
            
 
 
@@ -75,8 +74,7 @@ namespace AirAtlantiqueWPF
             {
                 vbdd.InsertVols(timedep,timearrive, Int32.Parse(idAvion.Text), Int32.Parse(id_dep.Text.Split('-')[0]), Int32.Parse(id_arrive.Text.Split('-')[0]));
                 MessageBox.Show("Vol Ajouté");
-                new Vols();
-                this.Close();
+                
             }
             else
             {

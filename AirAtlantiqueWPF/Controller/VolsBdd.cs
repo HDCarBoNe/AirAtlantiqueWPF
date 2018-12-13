@@ -35,7 +35,7 @@ namespace AirAtlantiqueWPF.Controller
             if (reader.HasRows)
             {
               
-                while (reader.Read())
+                if (reader.Read())
                 {
                    
                     

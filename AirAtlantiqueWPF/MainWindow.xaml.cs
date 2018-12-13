@@ -14,7 +14,6 @@ namespace AirAtlantiqueWPF
     {
         public MainWindow()
         {
-           
             InitializeComponent();
         }
 

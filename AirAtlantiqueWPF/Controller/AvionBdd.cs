@@ -32,7 +32,7 @@ namespace AirAtlantiqueWPF.Controller
             connection.Open();
             string query = "UPDATE avions SET modele=\""+a.ModelAvionProperty+"\",motorisation=\""+a.MotorisationProperty+"\",capacite=\""+a.CapaciteProperty+"\",nb_place_premium=\""+a.NbrPremiumProperty+"\",nb_place_business=\""+a.NbrBusinessProperty+"\",nb_place_eco=\""+a.NbrEcoProperty+"\",etat=\""+a.EtatAvionProperty+"\",type=\""+a.TypeProperty+"\" WHERE idAvion="+a.idAvionProperty+"";
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+            //MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             connection.Close();
         }
@@ -40,7 +40,7 @@ namespace AirAtlantiqueWPF.Controller
         public void insertAvion(string mo, string moto, int capa, int prem, int busi, int eco, int etat, string type)
         {
             connection.Open();
-            string query = "INSERT INTO avions(modele, motorisation, capacite, nb_place_premiere, nb_place_buissness, nb_place_eco, etat, type) VALUES(@mo,@moto,@capa,@prem,@busi,@eco,@etat,@type)";
+            string query = "INSERT INTO avions(modele, motorisation, capacite, nb_place_premium, nb_place_business, nb_place_eco, etat, type) VALUES(@mo,@moto,@capa,@prem,@busi,@eco,@etat,@type)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@mo", mo);
             cmd.Parameters.AddWithValue("@moto", moto);
@@ -50,6 +50,16 @@ namespace AirAtlantiqueWPF.Controller
             cmd.Parameters.AddWithValue("@eco", eco);
             cmd.Parameters.AddWithValue("@etat", etat);
             cmd.Parameters.AddWithValue("@type", type);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void deleteAvion(int id)
+        {
+            connection.Open();
+            string query = "DELETE FROM avions WHERE idAvion = @id";
+            MySqlCommand cmd = new MySqlCommand(query,connection);
+            cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
             connection.Close();
         }

@@ -22,6 +22,7 @@ using MenuItem = System.Windows.Controls.MenuItem;
 using MessageBox = System.Windows.MessageBox;
 using TextBox = System.Windows.Controls.TextBox;
 
+
 namespace AirAtlantiqueWPF
 {
     public partial class Avions : Window
@@ -72,6 +73,34 @@ namespace AirAtlantiqueWPF
         {
             //MessageBox.Show(((Avion)listeAvion.SelectedCells[1].Item).ModelAvionProperty);
             //throw new NotImplementedException();
+        }
+
+        private void ListeAvion_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var message = MessageBox.Show("Êtes-vous sur de vouloir supprimé cet avion ?", "Suppression Avion", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (message == MessageBoxResult.Yes)
+            {
+                try
+                {
+                   int id = ((Avion)listeAvion.SelectedCells[0].Item).idAvionProperty;
+                    if (id > 0)
+                    {
+                        AvionBdd.deleteAvion(id);
+                        MessageBox.Show("L'avion " + id + " a bien été supprimé");
+                        new Avions();
+                        this.Close();
+                    }
+                }
+                catch (Exception a)
+                {
+                    Console.WriteLine(a);
+                    throw;
+                }
+            }
+            else if (message == MessageBoxResult.No)
+            {
+                
+            }
         }
     }
 }

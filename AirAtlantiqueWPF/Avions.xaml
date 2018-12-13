@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         mc:Ignorable="d"
-        Title="Avions" Height="500" Width="800">
+        Title="Avions" Height="525" Width="910">
     <DockPanel>
         <Menu x:Name="Menu" DockPanel.Dock="Top">
             <MenuItem Header="_Options">
@@ -24,7 +24,7 @@
                 <Label Content="Capactie"></Label>
                 <TextBox Name="capaciteTextBox"></TextBox>
                 <Label Content="Etat"></Label>
-                <TextBox Name="etatTextBox"></TextBox>
+                <TextBox Name="etatTextBox" HorizontalAlignment="Left" Width="162"></TextBox>
                 <Label Content="nombre de place Premium"></Label>
                 <TextBox Name="premiumTextBox"></TextBox>
                 <Label Content="Nombre de place business"></Label>
@@ -34,32 +34,28 @@
                 <Label Content="Type"></Label>
                 <TextBox Name="typeTextBox"></TextBox>
                 <Button x:Name="addButton" Content="Ajouter" MouseDoubleClick="AddButton_OnMouseDoubleClick" Height="25"></Button>
-                <Button x:Name="updateButton" Content="Modifier" MouseDoubleClick="UpdateButton_OnMouseDoubleClick"></Button>
-                <Label>L'ID de l'avion à modifier</Label>
-                <TextBox Name="idTextBox"></TextBox>
             </StackPanel>
         </Grid>
-        <ScrollViewer x:Name="ContentScroll" Width="499" HorizontalAlignment="Right">
-            <Grid x:Name="Grid" Width="462" HorizontalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="204*"></RowDefinition>
-                    <RowDefinition Height="247*"/>
-                </Grid.RowDefinitions>
-                <DataGrid Name="listeAvion" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Right"  Width="450" Grid.RowSpan="2" RenderTransformOrigin="0.708,0.498" SelectionChanged="ListeAvion_OnSelectionChanged">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="id" Binding="{Binding idAvionProperty, Mode=OneWay}" />
-                        <DataGridTextColumn Header="Modele" Binding="{Binding ModelAvionProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="Motorisation" Binding="{Binding MotorisationProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="capacite" Binding="{Binding CapaciteProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="etat" Binding="{Binding EtatAvionProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="nb_premium" Binding="{Binding NbrPremiumProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="nb_business" Binding="{Binding NbrBusinessProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="nb_eco" Binding="{Binding NbrEcoProperty, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="type" Binding="{Binding TypeProperty, Mode=TwoWay}" />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </ScrollViewer>
+        <Grid x:Name="Grid" Width="474" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="190"></RowDefinition>
+                <RowDefinition Height="16"/>
+                <RowDefinition Height="215"/>
+            </Grid.RowDefinitions>
+            <DataGrid Name="listeAvion" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.RowSpan="3" RenderTransformOrigin="0.708,0.498" SelectionChanged="ListeAvion_OnSelectionChanged" MouseRightButtonUp="ListeAvion_OnMouseRightButtonUp" Margin="-51,0,-194,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding idAvionProperty, Mode=OneWay}" />
+                    <DataGridTextColumn Header="Modele" Binding="{Binding ModelAvionProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="Motorisation" Binding="{Binding MotorisationProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="capacite" Binding="{Binding CapaciteProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="etat" Binding="{Binding EtatAvionProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="nb_premium" Binding="{Binding NbrPremiumProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="nb_business" Binding="{Binding NbrBusinessProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="nb_eco" Binding="{Binding NbrEcoProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="type" Binding="{Binding TypeProperty, Mode=TwoWay}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </DockPanel>
 
 </Window>

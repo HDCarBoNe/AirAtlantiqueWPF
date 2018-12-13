@@ -14,47 +14,78 @@ namespace AirAtlantiqueWPF.Controller
     {
         AeroportBdd aebdd = new AeroportBdd();
         private static MySqlConnection connection = Db_connect.getConnection();
+        private int idvol;
+        private string date_dep;
+        private string date_arr;
+        private int idavion;
         private string value2;
         private string value4;
         private Aeroport id_dep;
         private Aeroport id_arrive;
-
+        private int id1;
+        private int id2;
         public void SelectVols(ObservableCollection<Vols> l)
         {
-             connection.Open();
+            connection.Close();
+           
             string query = "SELECT * FROM vols";
+            connection.Open();
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            if (reader.HasRows)
             {
-             
-                if (reader.IsDBNull(2))
+              
+                while (reader.Read())
                 {
-                     value2 = "Pas Parti";
-                }
-                else
-                {
-                    value2 = reader.GetString(2);
+                   
+                    
+                    if (reader.IsDBNull(2))
+                    {
+                        value2 = "Pas Parti";
+                    }
+
+                    
+                    else
+                    {
+                        value2 = reader.GetString(2);
+                    }
+                 
+                    if (reader.IsDBNull(4))
+                    {
+                        value4 = "Pas Arrivé";
+                    }
+                    else
+                    {
+                        value4 = reader.GetString(4);
+                    }
+
+                    idvol = reader.GetInt32(0);
+                   
+                    date_dep = reader.GetString(1);
+
+                    date_arr = reader.GetString(3);
+                    idavion = reader.GetInt32(5);
+
+                    id1 = reader.GetInt32(6);
+                    id2 = reader.GetInt32(7);
+
+                    reader.GetString(3);
+                    id_dep = aebdd.ChooseAeroport(id1);
+
+                    id_arrive = aebdd.ChooseAeroport(id2);
+                    
+                    Vols a = new Vols(idvol, date_dep, value2, date_arr, value4, idavion, id_dep, id_arrive);
+                   
+                    l.Add(a);
+                    MessageBox.Show("COUCOU");
+                   
                 }
 
-                if (reader.IsDBNull(4))
-                {
-                    value4 = "Pas Arrivé";
-                }
-                else
-                {
-                    value4 = reader.GetString(4);
-                }
-                var dep = reader.GetInt32(6);
-                var arrive = reader.GetInt32(7);
-                 id_dep = aebdd.ChooseAeroport(dep);
-                 id_arrive = aebdd.ChooseAeroport(arrive);
-              
-                Vols a = new Vols(reader.GetInt32(0), reader.GetString(1), value2, reader.GetString(3), value4, reader.GetInt32(5), this.id_dep, this.id_arrive);
-                l.Add(a);
+                reader.Close();
+                connection.Close();
+
             }
-            reader.Close();
-            connection.Close();
+          
         }
 
         public static void updateVol(Vols a)

@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace AirAtlantiqueWPF.Controller
 {
     class VolsBdd
     {
+        AeroportBdd aebdd = new AeroportBdd();
         private static MySqlConnection connection = Db_connect.getConnection();
         private string value2;
         private string value4;
+        private Aeroport id_dep;
+        private Aeroport id_arrive;
+
         public void SelectVols(ObservableCollection<Vols> l)
         {
              connection.Open();
@@ -39,8 +45,12 @@ namespace AirAtlantiqueWPF.Controller
                 {
                     value4 = reader.GetString(4);
                 }
-
-                Vols a = new Vols(reader.GetInt32(0), reader.GetString(1), value2, reader.GetString(3), value4, reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7));
+                var dep = reader.GetInt32(6);
+                var arrive = reader.GetInt32(7);
+                 id_dep = aebdd.ChooseAeroport(dep);
+                 id_arrive = aebdd.ChooseAeroport(arrive);
+              
+                Vols a = new Vols(reader.GetInt32(0), reader.GetString(1), value2, reader.GetString(3), value4, reader.GetInt32(5), this.id_dep, this.id_arrive);
                 l.Add(a);
             }
             reader.Close();

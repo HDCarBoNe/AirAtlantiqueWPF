@@ -1,36 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
+using Image = System.Windows.Controls.Image;
 
 namespace AirAtlantiqueWPF
 {
-    /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            Image im = new Image();
+            ImageSource img = new BitmapImage(new Uri("avion.jpg", UriKind.Relative));
+            im.Source = img;
+            Main.Content = im;
         }
 
-        private void Avion_Click(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClickHome(object sender, RoutedEventArgs e)
         {
-            new Avions();
-            this.Close();
-            //coucou.content = new Avions();
-            
+            Image im = new Image();
+            ImageSource img = new BitmapImage(new Uri("avion.jpg", UriKind.Relative));
+            im.Source = img;
+            Main.Content = im;
         }
 
-        private void Vols_Click(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClickAvions(object sender, RoutedEventArgs e)
         {
-            new Vol();
-            this.Close();
-
+            Main.Content = new Avions();
         }
 
+        private void ButtonBase_OnClickVols(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Vol();
+        }
+
+        private void ButtonBase_OnClickAeroport(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new  Aeroports();
+        }
     }
 }

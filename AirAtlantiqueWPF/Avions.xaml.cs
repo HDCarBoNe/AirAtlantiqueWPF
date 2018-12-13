@@ -25,7 +25,7 @@ using TextBox = System.Windows.Controls.TextBox;
 
 namespace AirAtlantiqueWPF
 {
-    public partial class Avions : Window
+    public partial class Avions : Page
     {
         Avion avion;
         AvionBdd avbdd = new AvionBdd();
@@ -36,10 +36,8 @@ namespace AirAtlantiqueWPF
             InitializeComponent();
             avbdd.SelectAvion(la);
             listeAvion.ItemsSource = la;
-            this.Title = "Air Atlantique Gestion des Avions";
-            this.Show();
-         
-          
+            //this.Title = "Air Atlantique Gestion des Avions";
+            //this.Show();
         }
 
         private void AddButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -50,8 +48,9 @@ namespace AirAtlantiqueWPF
             {
                 avbdd.insertAvion(modeleTextBox.Text, motorisationTextBox.Text, Int32.Parse(capaciteTextBox.Text), Int32.Parse(premiumTextBox.Text), Int32.Parse(businessTextBox.Text), Int32.Parse(ecoTextBox.Text), Int32.Parse(etatTextBox.Text), typeTextBox.Text);
                 MessageBox.Show("Avion Ajouté");
-                new Avions();
-                this.Close();
+                listeAvion.ItemsSource = null;
+                avbdd.SelectAvion(la);
+                listeAvion.ItemsSource = la;
             }
             else
             {
@@ -82,19 +81,19 @@ namespace AirAtlantiqueWPF
             {
                 try
                 {
-                   int id = ((Avion)listeAvion.SelectedCells[0].Item).idAvionProperty;
+                    int id = ((Avion) listeAvion.SelectedCells[0].Item).idAvionProperty;
                     if (id > 0)
                     {
                         AvionBdd.deleteAvion(id);
-                        MessageBox.Show("L'avion " + id + " a bien été supprimé");
-                        new Avions();
-                        this.Close();
+                        MessageBox.Show("L\'avion " + id + " a bien été supprimé");
+                        listeAvion.ItemsSource = null;
+                        avbdd.SelectAvion(la);
+                        listeAvion.ItemsSource = la;
                     }
                 }
-                catch (Exception a)
+                catch (ArgumentOutOfRangeException a)
                 {
-                    Console.WriteLine(a);
-                    throw;
+                    MessageBox.Show("Selectionner une ligne pour supprimer un avion");
                 }
             }
             else if (message == MessageBoxResult.No)

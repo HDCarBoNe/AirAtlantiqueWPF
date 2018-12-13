@@ -1,4 +1,4 @@
-﻿<Window x:Class="AirAtlantiqueWPF.Avions"
+﻿<Page x:Class="AirAtlantiqueWPF.Avions"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,15 +6,7 @@
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         mc:Ignorable="d"
         Title="Avions" Height="525" Width="910">
-    <DockPanel>
-        <Menu x:Name="Menu" DockPanel.Dock="Top">
-            <MenuItem Header="_Options">
-                <MenuItem Header="_Ajouter un avion" />
-                <MenuItem Header="_Sauvegrader" />
-                <Separator />
-                <MenuItem Header="_Quitter" />
-            </MenuItem>
-        </Menu>
+    <DockPanel Margin="0,35,0,0">
         <Grid Width="22">
             <StackPanel Margin="10,0,-150,0">
                 <Label Content="Modele"></Label>
@@ -57,5 +49,4 @@
             </DataGrid>
         </Grid>
     </DockPanel>
-
-</Window>
+</Page>

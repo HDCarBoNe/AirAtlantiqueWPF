@@ -88,11 +88,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Aeroports.xaml.cs">
+      <DependentUpon>Aeroports.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\AeroportBdd.cs" />
     <Compile Include="Controller\AeroportController.cs" />
     <Compile Include="Vol.xaml.cs">
       <DependentUpon>Vol.xaml</DependentUpon>
     </Compile>
+    <Page Include="Aeroports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Avions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="avion.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

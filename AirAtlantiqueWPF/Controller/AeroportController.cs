@@ -11,16 +11,16 @@ namespace AirAtlantiqueWPF.Controller
    public class Aeroport 
     {
         private int idAeroport;
-        private string nom;
+        private string AITA;
         private string ville;
         private string pays;
 
         public Aeroport() { }
 
-       public Aeroport(int idAeroport, string nom, string ville, string pays)
+       public Aeroport(int idAeroport, string aita, string ville, string pays)
         {
             this.idAeroport = idAeroport;
-            this.nom = nom;
+            this.AITA = aita;
             this.ville = ville;
             this.pays = pays;
         }
@@ -33,14 +33,14 @@ namespace AirAtlantiqueWPF.Controller
 
         public string AfficheProperty
         {
-            get { return idAeroport + " - " + nom; }
+            get { return idAeroport + " - " + AITA; }
         }
 
 
-        public string NomProperty
+        public string AITAProperty
         {
-            get { return nom; }
-            set { nom = value; }
+            get { return AITA; }
+            set { AITA = value; }
         }
 
 

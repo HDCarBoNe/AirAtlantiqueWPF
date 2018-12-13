@@ -6,26 +6,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Air Atlantique" Height="600" Width="900">
-    <Grid x:Name="grid">
-        <Grid.Resources>
-            <Style TargetType="Label">
-                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            </Style>
-        </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-
-        </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">Menu AirAtlantique</Label>
-        <Button Click="Avion_Click" Grid.Row="1" Grid.Column="0" >Gestion des Avions</Button>
-        <Button Click="Vols_Click" Grid.Row="1" Grid.Column="0" Margin="0,26,0,-26" >Gestion des Vols</Button>
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top" Background="#FF1A63FF">
+            <Button Click="ButtonBase_OnClickHome">
+                <Grid Height="26" Width="53">
+                    <materialDesign:PackIcon Kind="Home" Margin="-2,5,0,0" Foreground="#DDFFFFFF"></materialDesign:PackIcon>
+                    <Label Content="Home" Margin="8,-2,-8,-2" FontWeight="Bold" Foreground="#DDFFFFFF"></Label>
+                </Grid>
+            </Button>
+            <Button Margin="10,0,0,0" Click="ButtonBase_OnClickAvions">
+                <Grid Height="26" Width="56">
+                    <materialDesign:PackIcon Kind="Flight" Margin="-2,5,0,0" Foreground="#DDFFFFFF"></materialDesign:PackIcon>
+                    <Label Content="Avions" Margin="8,-2,-8,2" FontWeight="Bold" Foreground="#DDFFFFFF"></Label>
+                </Grid>
+            </Button>
+            <Button Margin="10,0,0,0" Click="ButtonBase_OnClickVols">
+                <Grid Height="26" Width="51">
+                    <materialDesign:PackIcon Kind="FlightLand" Margin="-2,5,0,0" Foreground="#DDFFFFFF"></materialDesign:PackIcon>
+                    <Label Content="Vols" Margin="10,-2,-8,2" FontWeight="Bold" Foreground="#DDFFFFFF"></Label>
+                </Grid>
+            </Button>
+            <Button Margin="10,0,0,0" Click="ButtonBase_OnClickAeroport">
+                <Grid Height="26" Width="85">
+                    <materialDesign:PackIcon Kind="Airport" Margin="-2,5,0,0" Foreground="#DDFFFFFF"></materialDesign:PackIcon>
+                    <Label Content="Aéroports" Margin="12,-2,-8,0" FontWeight="Bold" Foreground="#DDFFFFFF"></Label>
+                </Grid>
+            </Button>
+        </StackPanel>
+        <Frame x:Name="Main" Margin="0,35,0,0" NavigationUIVisibility="Hidden">
+        </Frame>
     </Grid>
+
 </Window>
 <!--
     <frame x:Name="coucou" NavigationVisibility="hidden" background="black"/>-->

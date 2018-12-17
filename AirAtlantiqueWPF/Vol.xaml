@@ -35,8 +35,8 @@
                 <DataGridTextColumn Header="arrive_prevu" Binding="{Binding ArriveprevuProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="arrive_reel" Binding="{Binding ArrivereelProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="avion" Binding="{Binding IdAvionProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Aeroport_Depart" Binding="{Binding IdDepProperty.NomProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Aeroport_Arrive" Binding="{Binding IdArriveProperty.NomProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Aeroport_Depart" Binding="{Binding IdDepProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Aeroport_Arrive" Binding="{Binding IdArriveProperty, Mode=TwoWay}" />
             </DataGrid.Columns>
         </DataGrid>
 

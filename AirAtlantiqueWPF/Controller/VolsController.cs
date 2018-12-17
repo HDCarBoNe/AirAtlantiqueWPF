@@ -90,12 +90,30 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
 
+        public string NomDepProperty
+        {
+            get
+            {
+                Aeroport a = new AeroportBdd().ChooseAeroport(id_dep);
+                return a.AITAProperty;
+            }
+        }
+
         public int IdDepProperty
         {
             get { return id_dep; }
             set
             {
                 id_dep = value;
+            }
+        }
+
+        public string NomArrProperty
+        {
+            get
+            {
+                Aeroport a = new AeroportBdd().ChooseAeroport(id_arrive);
+                return a.AITAProperty;
             }
         }
 

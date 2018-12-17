@@ -13,6 +13,7 @@ namespace AirAtlantiqueWPF.Controller
     {
        
         private static MySqlConnection connection = Db_connect.getConnection();
+        
 
         public void SelectAeroports(ObservableCollection<Aeroport> l)
         {
@@ -21,7 +22,7 @@ namespace AirAtlantiqueWPF.Controller
             string query = "SELECT * FROM aeroport";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            while (reader.Read())
             {
                 Aeroport a = new Aeroport(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
                 l.Add(a);
@@ -39,7 +40,7 @@ namespace AirAtlantiqueWPF.Controller
             cmd.Parameters.AddWithValue("@id", id);
             MySqlDataReader reader = cmd.ExecuteReader();
             Aeroport b = new Aeroport();
-            while (reader.Read())
+            if (reader.Read())
             {
                 
                 b = new Aeroport(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
@@ -47,7 +48,7 @@ namespace AirAtlantiqueWPF.Controller
               
             }
             reader.Close();
-            connection.Close();
+           
             return b;
             
             

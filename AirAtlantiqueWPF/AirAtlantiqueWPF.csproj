@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>paper-plane.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
@@ -91,9 +94,17 @@
     <Compile Include="Aeroports.xaml.cs">
       <DependentUpon>Aeroports.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Clients.xaml.cs">
+      <DependentUpon>Clients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Client_menu.xaml.cs">
+      <DependentUpon>Client_menu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\AeroportBdd.cs" />
     <Compile Include="Controller\AeroportController.cs" />
     <Compile Include="Controller\AvionInAero.cs" />
+    <Compile Include="Controller\ClientBdd.cs" />
+    <Compile Include="Controller\ClientController.cs" />
     <Compile Include="Vol.xaml.cs">
       <DependentUpon>Vol.xaml</DependentUpon>
     </Compile>
@@ -102,6 +113,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Avions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Clients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Client_menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="avion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="paper-plane.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="personne.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

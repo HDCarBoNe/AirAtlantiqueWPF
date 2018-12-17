@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -42,6 +43,11 @@ namespace AirAtlantiqueWPF
         private void ButtonBase_OnClickAeroport(object sender, RoutedEventArgs e)
         {
             Main.Content = new  Aeroports();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Clients();
         }
     }
 }

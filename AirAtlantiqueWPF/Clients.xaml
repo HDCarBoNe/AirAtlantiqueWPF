@@ -1,0 +1,27 @@
+﻿<Page x:Class="AirAtlantiqueWPF.Clients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AirAtlantiqueWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="880"
+      Title="Clients">
+
+    <Grid Margin="0,35,0,0">
+        <DataGrid Name="listClient" ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionChanged="ListClient_OnSelectionChanged" MouseDoubleClick="ListClient_OnMouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Client" Binding="{Binding idClientProperty, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nom" Binding="{Binding NomProperty, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Prénom" Binding="{Binding PrenomProperty, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Adresse" Binding="{Binding AdresseProperty, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Code Postal" Binding="{Binding CpProperty, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ville" Binding="{Binding VilleProperty, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Pays" Binding="{Binding PaysProperty, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Points Fidélités" Binding="{Binding PtsFideliteProperty, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Numéro Dernier Vol" Binding="{Binding idLastVolProperty, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date" Binding="{Binding DateLastVolProperty, Mode=OneWay}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

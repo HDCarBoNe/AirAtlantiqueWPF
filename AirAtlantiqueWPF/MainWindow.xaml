@@ -34,6 +34,12 @@
                     <Label Content="Aéroports" Margin="12,-2,-8,0" FontWeight="Bold" Foreground="#DDFFFFFF"></Label>
                 </Grid>
             </Button>
+            <Button Margin="10,0,0,0" Click="ButtonBase_OnClick">
+                <Grid Height="26" Width="85">
+                    <materialDesign:PackIcon Kind="Person" Margin="-2,5,0,0" Foreground="#DDFFFFFF"></materialDesign:PackIcon>
+                    <Label Content="Clients" Margin="12,-2,-8,0" FontWeight="Bold" Foreground="#DDFFFFFF"></Label>
+                </Grid>
+            </Button>
         </StackPanel>
         <Frame x:Name="Main" Margin="0,35,0,0" NavigationUIVisibility="Hidden">
         </Frame>

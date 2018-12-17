@@ -54,15 +54,17 @@ namespace AirAtlantiqueWPF.Controller
             
         }
 
-        public void SelectAvionInAeroports(ObservableCollection<Aeroport> l)
+        public void SelectAvionAeroports(ObservableCollection<AvionInAero> l,int idaero)
         {
             connection.Open();
-            string query = "SELECT * FROM aeroport";
+            string query = "SELECT av.idAvion, av.modele, av.capacite, av.type, av.etat , v.idVols, v.arrive_reel FROM vols v INNER JOIN avions av ON av.idAvion = v.id_avion WHERE v.arrive_reel=(SELECT MAX(v2.arrive_reel) From vols v2 WHERE v2.id_avion = v.id_avion ) AND v.id_arrive = @idaero GROUP By av.idAvion ORDER By av.idAvion";
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@idaero", idaero);
             MySqlDataReader reader = cmd.ExecuteReader();
+            var i = 0;
             while (reader.Read())
             {
-                Aeroport a = new Aeroport(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+               AvionInAero a = new AvionInAero(reader.GetInt32(0), reader.GetString(1),reader.GetInt32(2),reader.GetInt32(3), reader.GetInt32(4),reader.GetInt32(5),reader.GetDateTime(6));
                 l.Add(a);
             }
             reader.Close();

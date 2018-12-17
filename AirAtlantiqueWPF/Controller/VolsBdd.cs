@@ -32,19 +32,20 @@ namespace AirAtlantiqueWPF.Controller
             connection.Open();
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
+            
             if (reader.HasRows)
             {
               
-                if (reader.Read())
+                while (reader.Read())
                 {
                    
-                    
+                 
                     if (reader.IsDBNull(2))
                     {
                         value2 = "Pas Parti";
                     }
 
-                    
+                
                     else
                     {
                         value2 = reader.GetString(2);
@@ -70,14 +71,13 @@ namespace AirAtlantiqueWPF.Controller
                     id2 = reader.GetInt32(7);
 
                     reader.GetString(3);
-                    id_dep = aebdd.ChooseAeroport(id1);
-
-                    id_arrive = aebdd.ChooseAeroport(id2);
                     
-                    Vols a = new Vols(idvol, date_dep, value2, date_arr, value4, idavion, id_dep, id_arrive);
+                
+                    
+                    Vols a = new Vols(idvol, date_dep, value2, date_arr, value4, idavion, id1, id2);
                    
                     l.Add(a);
-                    MessageBox.Show("COUCOU");
+                    
                    
                 }
 

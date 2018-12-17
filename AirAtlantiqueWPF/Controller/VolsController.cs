@@ -19,12 +19,12 @@ namespace AirAtlantiqueWPF.Controller
         private string arriveprevu;
         private string arrivereel;
         private int idavion;
-        private Aeroport id_dep;
-        private Aeroport id_arrive;
+        private int id_dep;
+        private int id_arrive;
 
         public Vols() { }
 
-        public Vols(int idvols, string departprevu, string departreel, string arriveprevu, string arrivereel, int idavion, Aeroport id_dep, Aeroport id_arrive)
+        public Vols(int idvols, string departprevu, string departreel, string arriveprevu, string arrivereel, int idavion, int id_dep, int id_arrive)
         {
             this.idvols = idvols;
             this.departprevu = departprevu;
@@ -90,7 +90,7 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
 
-        public Aeroport IdDepProperty
+        public int IdDepProperty
         {
             get { return id_dep; }
             set
@@ -99,7 +99,7 @@ namespace AirAtlantiqueWPF.Controller
             }
         }
 
-        public Aeroport IdArriveProperty
+        public int IdArriveProperty
         {
             get { return id_arrive; }
             set

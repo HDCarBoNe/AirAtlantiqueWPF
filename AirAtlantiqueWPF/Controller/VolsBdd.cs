@@ -35,7 +35,7 @@ namespace AirAtlantiqueWPF.Controller
             if (reader.HasRows)
             {
               
-                if (reader.Read())
+                while (reader.Read())
                 {
                    
                     
@@ -77,7 +77,6 @@ namespace AirAtlantiqueWPF.Controller
                     Vols a = new Vols(idvol, date_dep, value2, date_arr, value4, idavion, id_dep, id_arrive);
                    
                     l.Add(a);
-                    MessageBox.Show("COUCOU");
                    
                 }
 

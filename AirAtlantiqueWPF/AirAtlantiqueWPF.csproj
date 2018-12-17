@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Controller\AeroportBdd.cs" />
     <Compile Include="Controller\AeroportController.cs" />
+    <Compile Include="Controller\AvionInAero.cs" />
     <Compile Include="Vol.xaml.cs">
       <DependentUpon>Vol.xaml</DependentUpon>
     </Compile>

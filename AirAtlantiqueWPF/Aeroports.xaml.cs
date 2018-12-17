@@ -31,12 +31,15 @@ namespace AirAtlantiqueWPF
             InitializeComponent();
             aebdd.SelectAeroports(lae);
             comboAero.ItemsSource = lae;
-            
         }
 
         private void ComboAero_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            //recupération id Aéroport select
+            Aeroport aeroselect = (Aeroport)comboAero.SelectedItem;
+            ObservableCollection<AvionInAero> aia = new ObservableCollection<AvionInAero>();
+            aebdd.SelectAvionAeroports(aia, aeroselect.idAeroportProperty);
+            listeAvionAero.ItemsSource = aia;
         }
     }
 }

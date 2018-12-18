@@ -31,6 +31,7 @@ namespace AirAtlantiqueWPF.Controller
 
         public int idProperty
         {
+            set { idProperty = value; }
             get { return idAvion; }
         }
 

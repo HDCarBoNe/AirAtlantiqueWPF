@@ -14,6 +14,7 @@ namespace AirAtlantiqueWPF.Controller
     
         public void SelectAvion(ObservableCollection<Avion> l)
         {
+            connection.Close();
             connection.Open();
             string query = "SELECT * FROM avions";
             MySqlCommand cmd = new MySqlCommand(query, connection);

@@ -6,40 +6,44 @@
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Window1" Height="459.6" Width="1416.5">
+        Title="Window1" Height="525" Width="910">
 
 
+    <DockPanel Margin="0,35,0,0">
 
-    <Grid x:Name="Grid" Margin="-320,0,192,39">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="112*"/>
-            <RowDefinition Height="99*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Margin="502,0,565,10" Grid.RowSpan="2">
-            <Label Content="Depart Prevu"></Label>
-            <DatePicker Name="departprevu" SelectedDate="{Binding Path=Date}"/>
-            <materialDesign:TimePicker x:Name="departheure"></materialDesign:TimePicker>
-            <Label Content="Arrive Prevu"></Label>
-            <DatePicker Name="arriveprevu" SelectedDate="{Binding Path=Date}" />
-            <materialDesign:TimePicker x:Name="arriveheure"></materialDesign:TimePicker>
-            <Label Content="Avion"></Label>
-            <ComboBox x:Name="idAvion" DisplayMemberPath="idAvionProperty"></ComboBox>
-            <Label Content="Aeroport Depart"></Label>
-            <ComboBox x:Name="id_dep" ItemsSource="{Binding Path=Aeroport}"  DisplayMemberPath="AfficheProperty"></ComboBox>
-            <Label Content="Aeroport Arrive"></Label>
-            <ComboBox Name="id_arrive" DisplayMemberPath="AfficheProperty" Height="16" Margin="10,0,0,0"></ComboBox>
-            <Label></Label>
-            <Button x:Name="addButton" Content="Ajouter" Height="25" MouseDoubleClick="AddButton_OnMouseDoubleClick"></Button>
-        </StackPanel>
-        <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="732" Margin="1533,0,-735,0" Grid.RowSpan="2">
+        <Grid Width="22">
+            <StackPanel  Margin="10,0,-150,0">
+                <Label Content="Depart Prevu"></Label>
+                <DatePicker Name="departprevu" SelectedDate="{Binding Path=Date}"/>
+                <materialDesign:TimePicker x:Name="departheure"></materialDesign:TimePicker>
+                <Label Content="Arrive Prevu"></Label>
+                <DatePicker Name="arriveprevu" SelectedDate="{Binding Path=Date}" />
+                <materialDesign:TimePicker x:Name="arriveheure"></materialDesign:TimePicker>
+                <Label Content="Avion"></Label>
+                <ComboBox x:Name="idAvion" DisplayMemberPath="idProperty"></ComboBox>
+                <Label Content="Aeroport Depart"></Label>
+                <ComboBox x:Name="id_dep" DisplayMemberPath="AITAProperty" SelectedValuePath="idAeroportProperty"></ComboBox>
+                <Label Content="Aeroport Arrive"></Label>
+                <ComboBox x:Name="id_arrive" DisplayMemberPath="AITAProperty" SelectedValuePath="idAeroportProperty"></ComboBox>
+                <Label></Label>
+                <Button x:Name="addButton" Content="Ajouter" Height="25" MouseDoubleClick="AddButton_OnMouseDoubleClick"></Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Grid" Width="474" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="490"></RowDefinition>
+                <RowDefinition Height="16"/>
+                <RowDefinition Height="315"/>
+            </Grid.RowDefinitions>
+            <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Right" SelectionChanged="ListeVols_OnSelectionChanged" Width="706" Margin="-51,0,-194,0">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding idVolsProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="depart_prevu" Binding="{Binding DepartprevuProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="depart_reel" Binding="{Binding  DepartreelProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="arrive_prevu" Binding="{Binding ArriveprevuProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="arrive_reel" Binding="{Binding ArrivereelProperty, Mode=TwoWay}" />
-                <DataGridComboBoxColumn 
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="id" Binding="{Binding idVolsProperty, Mode=OneWay}" />
+                    <DataGridTextColumn Header="depart_prevu" Binding="{Binding DepartprevuProperty, Mode=OneWay}" />
+                    <DataGridTextColumn Header="depart_reel" Binding="{Binding  DepartreelProperty, Mode=TwoWay}" />
+                    <DataGridTextColumn Header="arrive_prevu" Binding="{Binding ArriveprevuProperty, Mode=OneWay}" />
+                    <DataGridTextColumn Header="arrive_reel" Binding="{Binding ArrivereelProperty, Mode=TwoWay}" />
+                    <DataGridComboBoxColumn 
                     Header="IdAvion" 
                     x:Name="comboAv" 
                     SelectedValueBinding="{Binding IdAvionProperty, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
@@ -47,8 +51,8 @@
                     DisplayMemberPath="idProperty"
                 />
 
-                <DataGridTextColumn Header="Aeroport_Depart"  Binding="{Binding NomDepProperty, Mode=OneWay}" />
-                <DataGridComboBoxColumn 
+                    <DataGridTextColumn Header="Aeroport_Depart"  Binding="{Binding NomDepProperty, Mode=OneWay}" />
+                    <DataGridComboBoxColumn 
                     Header="Aeroport_Arrive" 
                     x:Name="comboAero" 
                     SelectedValueBinding="{Binding IdArriveProperty, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
@@ -56,8 +60,9 @@
                     DisplayMemberPath="AITAProperty"
                 />
 
-            </DataGrid.Columns>
-        </DataGrid>
+                </DataGrid.Columns>
+            </DataGrid>
 
-    </Grid>
+        </Grid>
+    </DockPanel>
 </Page>

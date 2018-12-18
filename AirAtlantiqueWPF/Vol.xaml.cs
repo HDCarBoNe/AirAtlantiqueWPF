@@ -26,16 +26,17 @@ namespace AirAtlantiqueWPF
 {
     public partial class Vol : Page
     {
-        Vols vols;
-        VolsBdd vbdd = new VolsBdd();
-        AvionBdd abdd = new AvionBdd();
-        AeroportBdd aebdd = new AeroportBdd();
-        ObservableCollection<Avion> la = new ObservableCollection<Avion>();
-        ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
-        ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
         
-        string timedep;
-        string timearrive;
+        private VolsBdd vbdd = new VolsBdd();
+        private AvionBdd abdd = new AvionBdd();
+        private AeroportBdd aebdd = new AeroportBdd();
+        private ObservableCollection<Avion> la = new ObservableCollection<Avion>();
+        private ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
+        private ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
+        private CultureInfo cultureSource = new CultureInfo("fr-FR", false);
+
+        private string timedep;
+        private string timearrive;
 
 
 
@@ -46,6 +47,9 @@ namespace AirAtlantiqueWPF
             abdd.SelectAvion(la);
             vbdd.SelectVols(lv);
             aebdd.SelectAeroports(lae);
+            idAvion.ItemsSource = la;
+            id_dep.ItemsSource = lae;
+            id_arrive.ItemsSource = lae;
             listeVols.ItemsSource = lv;
             comboAv.ItemsSource = la;
             comboAero.ItemsSource = lae;
@@ -63,16 +67,15 @@ namespace AirAtlantiqueWPF
 
         private void AddButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var cultureSource = new CultureInfo("fr-FR", false);
             
-              timedep = departprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + departheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-            timearrive = arriveprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + arriveheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-
             if (arriveprevu.Text != "" && departheure.Text != "" && arriveprevu.Text != "" &&
                 arriveprevu.Text != "" && idAvion.Text != "" && id_dep.Text != "" &&
                 id_arrive.Text != "")
             {
-                vbdd.InsertVols(timedep,timearrive, Int32.Parse(idAvion.Text), Int32.Parse(id_dep.Text.Split('-')[0]), Int32.Parse(id_arrive.Text.Split('-')[0]));
+                timedep = departprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + departheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                timearrive = arriveprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + arriveheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+                vbdd.InsertVols(timedep,timearrive, Int32.Parse(idAvion.Text), Int32.Parse(id_dep.SelectedValue.ToString()), Int32.Parse(id_arrive.SelectedValue.ToString()));
                 MessageBox.Show("Vol Ajouté");
                 
             }

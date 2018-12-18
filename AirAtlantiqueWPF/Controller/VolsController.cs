@@ -45,9 +45,10 @@ namespace AirAtlantiqueWPF.Controller
         public string DepartprevuProperty
         {
             get {
-                DateTime dateValue = DateTime.Parse(departprevu);
-                departprevu = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
-
+                
+               DateTime dateValue = DateTime.Parse(departprevu);
+               departprevu = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+              
                 return departprevu;
             }
             set
@@ -60,8 +61,11 @@ namespace AirAtlantiqueWPF.Controller
         public string DepartreelProperty
         {
             get {
-                DateTime dateValue = DateTime.Parse(departreel);
-                departreel = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+                if (departreel != "NULL")
+                {
+                    DateTime dateValue = DateTime.Parse(departreel);
+                    departreel = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+                }
                 return departreel;
             }
             set
@@ -88,8 +92,12 @@ namespace AirAtlantiqueWPF.Controller
         public string ArrivereelProperty
         {
             get {
-                DateTime dateValue = DateTime.Parse(arrivereel);
-                arrivereel = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+
+                if (arrivereel != "NULL")
+                {
+                    DateTime dateValue = DateTime.Parse(arrivereel);
+                    arrivereel = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+                }
                 return arrivereel;
             }
             set

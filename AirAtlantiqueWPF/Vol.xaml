@@ -27,18 +27,24 @@
             <Label></Label>
             <Button x:Name="addButton" Content="Ajouter" Height="25" MouseDoubleClick="AddButton_OnMouseDoubleClick"></Button>
         </StackPanel>
-        <DataGrid Name="listeVols" ItemsSource="{Binding Path=lv}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="888" Margin="498,0,-82,0">
+        <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Center" SelectionChanged="ListeVols_OnSelectionChanged" Width="888" Margin="498,0,-82,0">
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding idVolProperty, Mode=OneWay}" />
+                <DataGridTextColumn Header="id" Binding="{Binding idVolsProperty, Mode=OneWay}" />
                 <DataGridTextColumn Header="depart_prevu" Binding="{Binding DepartprevuProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="depart_reel" Binding="{Binding  DepartreelProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="arrive_prevu" Binding="{Binding ArriveprevuProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="arrive_reel" Binding="{Binding ArrivereelProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="avion" Binding="{Binding IdAvionProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Aeroport_Depart"  Binding="{Binding NomDepProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="Aeroport_Arrive"  Binding="{Binding NomArrProperty, Mode=OneWay}" />
-
+                <DataGridComboBoxColumn 
+                    Header="Aeroport_Arrive" 
+                   x:Name="comboAero" 
+                    SelectedValueBinding="{Binding IdArriveProperty, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                    SelectedValuePath="idAeroportProperty" 
+                    DisplayMemberPath="AITAProperty"
+                />
+              
             </DataGrid.Columns>
         </DataGrid>
 

@@ -33,6 +33,7 @@ namespace AirAtlantiqueWPF
         ObservableCollection<Avion> la = new ObservableCollection<Avion>();
         ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
         ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
+        
         string timedep;
         string timearrive;
 
@@ -48,7 +49,8 @@ namespace AirAtlantiqueWPF
             id_dep.ItemsSource = lae;
             id_arrive.ItemsSource = lae;
             listeVols.ItemsSource = lv;
-            idAvion.ItemsSource = la;          
+            idAvion.ItemsSource = la;
+            comboAero.ItemsSource = lae;
             this.Title = "Air Atlantique Gestion des Vols";
            
 
@@ -57,15 +59,15 @@ namespace AirAtlantiqueWPF
 
         private void ListeVols_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
 
         }
 
         private void AddButton_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var cultureSource = new CultureInfo("fr-FR", false);
-       
-            timedep = departprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + departheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+            
+              timedep = departprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + departheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
             timearrive = arriveprevu.SelectedDate.Value.ToString("yyyy-MM-dd") + " " + arriveheure.SelectedTime.Value.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
 
             if (arriveprevu.Text != "" && departheure.Text != "" && arriveprevu.Text != "" &&

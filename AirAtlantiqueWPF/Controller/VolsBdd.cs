@@ -113,6 +113,28 @@ namespace AirAtlantiqueWPF.Controller
             connection.Close();
         }
 
+        public static void updateVols(Vols v)
+        {
+            connection.Close();
+            connection.Open();
+
+            string query = " UPDATE vols SET depart_prevu = @depart_prevu, depart_reel = @depart_reel, arrive_prevu = @arrive_prevu, arrive_reel = @arrive_reel, id_avion = @id_avion, id_arrive = @id_arrive WHERE idVols = @idvols";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@depart_prevu", v.DepartprevuProperty);
+            cmd.Parameters.AddWithValue("@depart_reel", v.DepartreelProperty);
+            cmd.Parameters.AddWithValue("@arrive_prevu", v.ArriveprevuProperty);
+            cmd.Parameters.AddWithValue("@arrive_reel", v.ArrivereelProperty);
+            cmd.Parameters.AddWithValue("@id_avion", v.IdAvionProperty);
+            //cmd.Parameters.AddWithValue("@id_dep", id_dep);
+            cmd.Parameters.AddWithValue("@id_arrive", v.IdArriveProperty);
+            cmd.Parameters.AddWithValue("@idvols", v.idVolsProperty);
+            
+       
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+
 
     }
 }

@@ -49,6 +49,7 @@ namespace AirAtlantiqueWPF
             id_dep.ItemsSource = lae;
             id_arrive.ItemsSource = lae;
             listeVols.ItemsSource = lv;
+            comboAv.ItemsSource = la;
             idAvion.ItemsSource = la;
             comboAero.ItemsSource = lae;
             this.Title = "Air Atlantique Gestion des Vols";

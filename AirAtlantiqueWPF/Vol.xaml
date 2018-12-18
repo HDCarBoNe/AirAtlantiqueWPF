@@ -35,7 +35,14 @@
                 <DataGridTextColumn Header="depart_reel" Binding="{Binding  DepartreelProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="arrive_prevu" Binding="{Binding ArriveprevuProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="arrive_reel" Binding="{Binding ArrivereelProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="avion" Binding="{Binding IdAvionProperty, Mode=TwoWay}" />
+                <DataGridComboBoxColumn 
+                    Header="IdAvion" 
+                    x:Name="comboAv" 
+                    SelectedValueBinding="{Binding idAvionProperty, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                    SelectedValuePath="idProperty" 
+                    DisplayMemberPath="idProperty"
+                />
+                
                 <DataGridTextColumn Header="Aeroport_Depart"  Binding="{Binding NomDepProperty, Mode=OneWay}" />
                 <DataGridComboBoxColumn 
                     Header="Aeroport_Arrive" 

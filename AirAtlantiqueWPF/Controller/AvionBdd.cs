@@ -30,7 +30,7 @@ namespace AirAtlantiqueWPF.Controller
         public static void updateAvion(Avion a)
         {
             connection.Open();
-            string query = "UPDATE avions SET modele=\""+a.ModelAvionProperty+"\",motorisation=\""+a.MotorisationProperty+"\",capacite=\""+a.CapaciteProperty+"\",nb_place_premium=\""+a.NbrPremiumProperty+"\",nb_place_business=\""+a.NbrBusinessProperty+"\",nb_place_eco=\""+a.NbrEcoProperty+"\",etat=\""+a.EtatAvionProperty+"\",type=\""+a.TypeProperty+"\" WHERE idAvion="+a.idAvionProperty+"";
+            string query = "UPDATE avions SET modele=\""+a.ModelAvionProperty+"\",motorisation=\""+a.MotorisationProperty+"\",capacite=\""+a.CapaciteProperty+"\",nb_place_premium=\""+a.NbrPremiumProperty+"\",nb_place_business=\""+a.NbrBusinessProperty+"\",nb_place_eco=\""+a.NbrEcoProperty+"\",etat=\""+a.EtatAvionProperty+"\",type=\""+a.TypeProperty+"\" WHERE idAvion="+a.idProperty+"";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             //MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();

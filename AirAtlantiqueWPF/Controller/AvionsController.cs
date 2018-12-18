@@ -29,7 +29,7 @@ namespace AirAtlantiqueWPF.Controller
             this.Type = type;
         }
 
-        public int idAvionProperty
+        public int idProperty
         {
             get { return idAvion; }
         }

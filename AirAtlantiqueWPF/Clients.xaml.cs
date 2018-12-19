@@ -39,9 +39,9 @@ namespace AirAtlantiqueWPF
 
         private void ListClient_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int idvol = ((Client) listClient.SelectedCells[0].Item).idLastVolProperty;
+            int idclient = ((Client) listClient.SelectedCells[0].Item).idClientProperty;
             //MessageBox.Show(idvol.ToString());
-           Client_menu menu = new Client_menu(idvol);
+           Client_menu menu = new Client_menu(idclient);
             menu.Show();
         }
     }

@@ -9,13 +9,22 @@
     <Grid>
         <Image Source="personne.jpg" Stretch="Fill" Height="100" Width="100" Margin="0,35,0,0" VerticalAlignment="Top"></Image>
         <DockPanel Name="info_client" Margin="0,145,0,180">
-            <Label Content="Nom" Height="25" VerticalAlignment="Top"></Label>
-            <Label Content="Test" Height="25" VerticalAlignment="Top" Margin="10,0,0,0"></Label>
-            <Label Content="Prenom" Height="25" VerticalAlignment="Top" Margin="-55,35,0,0" Width="59"></Label>
-            <Label Content="Test" Height="25" VerticalAlignment="Top" Margin="10,35,0,0"></Label>
-            <Label Content="Nationnalité" Height="25" VerticalAlignment="Top" Margin="-75,70,0,0" Width="104"></Label>
-            <Label Content="Test" Height="25" VerticalAlignment="Top" Margin="10,70,0,0"></Label>
+            <Grid>
+                <DataGrid x:Name="info_data" ItemsSource="{Binding}" AutoGenerateColumns="False" GridLinesVisibility="None">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding NomProperty}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Prenom" Binding="{Binding PrenomProperty}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Pays" Binding="{Binding PaysProperty}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </DockPanel>
-        <DataGrid Margin="0,350,0,0"></DataGrid>
+        <DataGrid x:Name="info_vol" ItemsSource="{Binding}" Margin="0,350,0,0" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date Vol" Binding="{Binding DateVolProperty}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Depart" Binding="{Binding DepartreelProperty}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Destination" Binding="{Binding ArrivereelProperty}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

@@ -113,6 +113,22 @@ namespace AirAtlantiqueWPF.Controller
             connection.Close();
         }
 
+        public void SelectHistoVols(ObservableCollection<Vols> l, int id)
+        {
+            connection.Close();
+            connection.Open();
+            string query = "SELECT v.arrive_reel, v.depart_reel,v.arrive_reel From vols v Inner Join histo_vols h ON h.id_vol = v.idVols AND h.id_client=@id";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", id);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Vols c = new Vols(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7));
+                l.Add(c);
+            }
+            reader.Close();
+            connection.Close();
+        }
 
     }
 }

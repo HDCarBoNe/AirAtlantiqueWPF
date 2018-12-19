@@ -183,7 +183,7 @@
     <Resource Include="paper-plane.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="personne.jpg" />
+    <Resource Include="Pages\personne.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

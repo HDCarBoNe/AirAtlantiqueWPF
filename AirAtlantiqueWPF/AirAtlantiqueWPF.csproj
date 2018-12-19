@@ -91,13 +91,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Aeroports.xaml.cs">
+    <Compile Include="Pages\Aeroports.xaml.cs">
       <DependentUpon>Aeroports.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Clients.xaml.cs">
+    <Compile Include="Pages\Clients.xaml.cs">
       <DependentUpon>Clients.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Client_menu.xaml.cs">
+    <Compile Include="Pages\Client_menu.xaml.cs">
       <DependentUpon>Client_menu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bdd\AeroportBdd.cs" />
@@ -105,22 +105,22 @@
     <Compile Include="Controller\AvionInAero.cs" />
     <Compile Include="Bdd\ClientBdd.cs" />
     <Compile Include="Controller\ClientController.cs" />
-    <Compile Include="Vol.xaml.cs">
+    <Compile Include="Pages\Vol.xaml.cs">
       <DependentUpon>Vol.xaml</DependentUpon>
     </Compile>
-    <Page Include="Aeroports.xaml">
+    <Page Include="Pages\Aeroports.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Avions.xaml">
+    <Page Include="Pages\Avions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Clients.xaml">
+    <Page Include="Pages\Clients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Client_menu.xaml">
+    <Page Include="Pages\Client_menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,7 +132,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Avions.xaml.cs">
+    <Compile Include="Pages\Avions.xaml.cs">
       <DependentUpon>Avions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bdd\AvionBdd.cs" />
@@ -144,7 +144,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vol.xaml">
+    <Page Include="Pages\Vol.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

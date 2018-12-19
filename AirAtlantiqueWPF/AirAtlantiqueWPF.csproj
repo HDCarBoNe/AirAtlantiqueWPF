@@ -100,10 +100,10 @@
     <Compile Include="Client_menu.xaml.cs">
       <DependentUpon>Client_menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controller\AeroportBdd.cs" />
+    <Compile Include="Bdd\AeroportBdd.cs" />
     <Compile Include="Controller\AeroportController.cs" />
     <Compile Include="Controller\AvionInAero.cs" />
-    <Compile Include="Controller\ClientBdd.cs" />
+    <Compile Include="Bdd\ClientBdd.cs" />
     <Compile Include="Controller\ClientController.cs" />
     <Compile Include="Vol.xaml.cs">
       <DependentUpon>Vol.xaml</DependentUpon>
@@ -135,12 +135,10 @@
     <Compile Include="Avions.xaml.cs">
       <DependentUpon>Avions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controller\AvionBdd.cs" />
+    <Compile Include="Bdd\AvionBdd.cs" />
     <Compile Include="Controller\AvionsController.cs" />
-    <Compile Include="Controller\Db_connect.cs" />
-    <Compile Include="Controller\personne.cs" />
-    <Compile Include="Controller\stock.cs" />
-    <Compile Include="Controller\VolsBdd.cs" />
+    <Compile Include="Bdd\Db_connect.cs" />
+    <Compile Include="Bdd\VolsBdd.cs" />
     <Compile Include="Controller\VolsController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

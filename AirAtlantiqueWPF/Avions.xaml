@@ -36,7 +36,7 @@
             </Grid.RowDefinitions>
             <DataGrid Name="listeAvion" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.RowSpan="3" RenderTransformOrigin="0.708,0.498" SelectionChanged="ListeAvion_OnSelectionChanged" MouseRightButtonUp="ListeAvion_OnMouseRightButtonUp" Margin="-51,0,-194,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="id" Binding="{Binding idAvionProperty, Mode=OneWay}" />
+                    <DataGridTextColumn Header="id" Binding="{Binding idProperty, Mode=OneWay}" />
                     <DataGridTextColumn Header="Modele" Binding="{Binding ModelAvionProperty, Mode=TwoWay}" />
                     <DataGridTextColumn Header="Motorisation" Binding="{Binding MotorisationProperty, Mode=TwoWay}" />
                     <DataGridTextColumn Header="capacite" Binding="{Binding CapaciteProperty, Mode=TwoWay}" />

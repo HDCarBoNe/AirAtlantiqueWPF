@@ -27,7 +27,6 @@ namespace AirAtlantiqueWPF
 {
     public partial class Avions : Page
     {
-        Avion avion;
         AvionBdd avbdd = new AvionBdd();
         ObservableCollection<Avion> la = new ObservableCollection<Avion>();
 
@@ -91,9 +90,10 @@ namespace AirAtlantiqueWPF
                         listeAvion.ItemsSource = la;
                     }
                 }
-                catch (ArgumentOutOfRangeException a)
+                catch (ArgumentException a)
                 {
                     MessageBox.Show("Selectionner une ligne pour supprimer un avion");
+                    MessageBox.Show("Erreur:" + a.ToString());
                 }
             }
             else if (message == MessageBoxResult.No)

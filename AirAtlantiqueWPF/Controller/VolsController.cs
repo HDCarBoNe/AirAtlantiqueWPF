@@ -163,7 +163,7 @@ namespace AirAtlantiqueWPF.Controller
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                VolsBdd.updateVol(this);
+                VolsBdd.updateVols(this);
             }
         }
 

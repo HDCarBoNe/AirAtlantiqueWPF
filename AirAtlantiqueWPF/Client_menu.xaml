@@ -21,9 +21,9 @@
         </DockPanel>
         <DataGrid x:Name="info_vol" ItemsSource="{Binding}" Margin="0,250,0,0" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Date Vol" Binding="{Binding ArrivereelProperty}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Depart" Binding="{Binding IdDepProperty}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Destination" Binding="{Binding IdArriveProperty}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date Vol" Binding="{Binding ArrivereelProperty, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn  x:Name="dep" Header="Depart" Binding="{Binding NomDepProperty, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn  x:Name="arrive" Header="Destination" Binding="{Binding NomArrProperty, Mode=OneWay}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

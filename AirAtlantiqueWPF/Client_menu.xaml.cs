@@ -21,20 +21,27 @@ namespace AirAtlantiqueWPF
     /// </summary>
     public partial class Client_menu : Window
     {
+        private AeroportBdd aebdd = new AeroportBdd();
+        private ClientBdd cbdd = new ClientBdd();
+        private VolsBdd vbdd = new VolsBdd();
+        private ObservableCollection<Client> lc = new ObservableCollection<Client>();
+        private ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
+        private ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
+
         public Client_menu(int id)
         {
             InitializeComponent();
             System.Windows.Controls.Image im = new Image();
             ImageSource img = new BitmapImage(new Uri("personne.jpg", UriKind.Relative));
             im.Source = img;
-            ClientBdd cbdd = new ClientBdd();
-            VolsBdd vbdd = new VolsBdd();
-            ObservableCollection<Client> lc = new ObservableCollection<Client>();
-            ObservableCollection<Vols> lv = new ObservableCollection<Vols>();
+           
+            aebdd.SelectAeroports(lae);
             cbdd.SelectClient(lc,id);
             info_data.ItemsSource = lc;
+            
             vbdd.SelectHistoVols(lv, id);
             info_vol.ItemsSource = lv;
+
 
 
         }

@@ -39,45 +39,71 @@ namespace AirAtlantiqueWPF.Controller
         public int idVolsProperty
         {
             get { return idvols; }
-            set
-            {
-                idvols = value;
-            }
+            
         }
 
         public string DepartprevuProperty
         {
-            get { return departprevu; }
+            get {
+                
+               DateTime dateValue = DateTime.Parse(departprevu);
+               departprevu = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+              
+                return departprevu;
+            }
             set
             {
                 departprevu = value;
+                OnPropertyChanged("depart_prevu");
             }
         }
 
         public string DepartreelProperty
         {
-            get { return departreel; }
+            get {
+                if (departreel != "NULL")
+                {
+                    DateTime dateValue = DateTime.Parse(departreel);
+                    departreel = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+                }
+                return departreel;
+            }
             set
             {
                 departreel = value;
+                OnPropertyChanged("depart_reel");
             }
         }
 
         public string ArriveprevuProperty
         {
-            get { return arriveprevu; }
+            get {
+                DateTime dateValue = DateTime.Parse(arriveprevu);
+                arriveprevu = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+                return arriveprevu;
+            }
             set
             {
                 arriveprevu = value;
+                OnPropertyChanged("arrive_prevu");
             }
         }
 
         public string ArrivereelProperty
         {
-            get { return arrivereel; }
+            get {
+
+                if (arrivereel != "NULL")
+                {
+                    DateTime dateValue = DateTime.Parse(arrivereel);
+                    arrivereel = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+                }
+                return arrivereel;
+            }
             set
             {
                 arrivereel = value;
+                OnPropertyChanged("arrive_reel");
             }
         }
 
@@ -87,6 +113,16 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 idavion = value;
+                OnPropertyChanged("id_avion");
+            }
+        }
+
+        public string NomDepProperty
+        {
+            get
+            {
+                Aeroport a = new AeroportBdd().ChooseAeroport(id_dep);
+                return a.AITAProperty;
             }
         }
 
@@ -96,6 +132,16 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 id_dep = value;
+                OnPropertyChanged("id_dep");
+            }
+        }
+
+        public string NomArrProperty
+        {
+            get
+            {
+                Aeroport a = new AeroportBdd().ChooseAeroport(id_arrive);
+                return a.AITAProperty;
             }
         }
 
@@ -105,38 +151,21 @@ namespace AirAtlantiqueWPF.Controller
             set
             {
                 id_arrive = value;
+                OnPropertyChanged("id_arrive");
             }
         }
 
-        public void add_flight()
-        {
-
-
-        }
-
-        public void remove_flight()
-        {
-
-
-        }
-
-        public void view_flight()
-        {
-
-
-        }
-
-        public void change_flight()
-        {
-
-        }
-
-        public void search_flight()
-        {
-
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string info)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(info));
+                VolsBdd.updateVols(this);
+            }
+        }
 
     }
 }

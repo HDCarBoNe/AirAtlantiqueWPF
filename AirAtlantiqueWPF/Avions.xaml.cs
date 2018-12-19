@@ -81,7 +81,7 @@ namespace AirAtlantiqueWPF
             {
                 try
                 {
-                    int id = ((Avion) listeAvion.SelectedCells[0].Item).idAvionProperty;
+                    int id = ((Avion) listeAvion.SelectedCells[0].Item).idProperty;
                     if (id > 0)
                     {
                         AvionBdd.deleteAvion(id);

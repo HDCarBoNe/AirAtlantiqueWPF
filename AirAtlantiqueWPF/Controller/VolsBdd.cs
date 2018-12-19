@@ -42,7 +42,7 @@ namespace AirAtlantiqueWPF.Controller
                  
                     if (reader.IsDBNull(2))
                     {
-                        value2 = "Pas Parti";
+                        value2 = "NULL";
                     }
 
                 
@@ -53,7 +53,7 @@ namespace AirAtlantiqueWPF.Controller
                  
                     if (reader.IsDBNull(4))
                     {
-                        value4 = "Pas Arrivé";
+                        value4 = "NULL";
                     }
                     else
                     {
@@ -97,7 +97,7 @@ namespace AirAtlantiqueWPF.Controller
 
         public void InsertVols(string departprevu, string arriveprevu, int idavion, int id_dep, int id_arrive)
         {
-
+            connection.Close();
             connection.Open();
             string query = "INSERT INTO vols( depart_prevu, arrive_prevu, id_avion, id_dep, id_arrive) VALUES( @depart_prevu, @arrive_prevu, @id_avion, @id_dep, @id_arrive)";
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -129,6 +129,24 @@ namespace AirAtlantiqueWPF.Controller
             reader.Close();
             connection.Close();
         }
+
+            string query = " UPDATE vols SET depart_prevu = @depart_prevu, depart_reel = @depart_reel, arrive_prevu = @arrive_prevu, arrive_reel = @arrive_reel, id_avion = @id_avion, id_arrive = @id_arrive WHERE idVols = @idvols";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@depart_prevu", v.DepartprevuProperty);
+            cmd.Parameters.AddWithValue("@depart_reel", v.DepartreelProperty);
+            cmd.Parameters.AddWithValue("@arrive_prevu", v.ArriveprevuProperty);
+            cmd.Parameters.AddWithValue("@arrive_reel", v.ArrivereelProperty);
+            cmd.Parameters.AddWithValue("@id_avion", v.IdAvionProperty);
+            //cmd.Parameters.AddWithValue("@id_dep", id_dep);
+            cmd.Parameters.AddWithValue("@id_arrive", v.IdArriveProperty);
+            cmd.Parameters.AddWithValue("@idvols", v.idVolsProperty);
+            
+       
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+
 
     }
 }

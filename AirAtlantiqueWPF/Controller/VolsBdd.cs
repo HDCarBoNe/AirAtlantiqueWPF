@@ -20,8 +20,8 @@ namespace AirAtlantiqueWPF.Controller
         private int idavion;
         private string value2;
         private string value4;
-        private Aeroport id_dep;
-        private Aeroport id_arrive;
+        //private Aeroport id_dep;
+        //private Aeroport id_arrive;
         private int id1;
         private int id2;
         public void SelectVols(ObservableCollection<Vols> l)

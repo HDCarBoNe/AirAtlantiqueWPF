@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Window1" Height="525" Width="910">
+        Title="Window1" Height="525" Width="1122.514">
 
 
-    <DockPanel Margin="0,35,0,0">
+    <DockPanel Margin="0,35,0,0" HorizontalAlignment="Left" Width="1206">
 
         <Grid Width="22">
             <StackPanel  Margin="10,0,-150,0">
@@ -29,13 +29,15 @@
                 <Button x:Name="addButton" Content="Ajouter" Height="25" MouseDoubleClick="AddButton_OnMouseDoubleClick"></Button>
             </StackPanel>
         </Grid>
-        <Grid x:Name="Grid" Width="474" HorizontalAlignment="Center">
+        <Grid x:Name="Grid" Width="1096" Height="490" VerticalAlignment="Bottom" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="490"></RowDefinition>
+                <RowDefinition Height="248.381"></RowDefinition>
+                <RowDefinition Height="45.125"/>
+                <RowDefinition Height="196.875"/>
                 <RowDefinition Height="16"/>
                 <RowDefinition Height="315"/>
             </Grid.RowDefinitions>
-            <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Right" SelectionChanged="ListeVols_OnSelectionChanged" Width="706" Margin="-51,0,-194,0">
+            <DataGrid Name="listeVols" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" SelectionChanged="ListeVols_OnSelectionChanged" Width="947" Margin="125,-10,0,10" Grid.RowSpan="3">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="id" Binding="{Binding idVolsProperty, Mode=OneWay}" />

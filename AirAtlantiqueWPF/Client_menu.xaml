@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirAtlantiqueWPF"
         mc:Ignorable="d"
-        Title="Client_menu" Height="550" Width="300">
+        Title="Client_menu" Height="550" Width="500">
     <Grid>
         <Image Source="personne.jpg" Stretch="Fill" Height="100" Width="100" Margin="0,35,0,0" VerticalAlignment="Top"></Image>
         <DockPanel Name="info_client" Margin="0,145,0,180">
@@ -19,11 +19,11 @@
                 </DataGrid>
             </Grid>
         </DockPanel>
-        <DataGrid x:Name="info_vol" ItemsSource="{Binding}" Margin="0,350,0,0" AutoGenerateColumns="False">
+        <DataGrid x:Name="info_vol" ItemsSource="{Binding}" Margin="0,250,0,0" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Date Vol" Binding="{Binding DateVolProperty}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Depart" Binding="{Binding DepartreelProperty}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Destination" Binding="{Binding ArrivereelProperty}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date Vol" Binding="{Binding ArrivereelProperty}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Depart" Binding="{Binding IdDepProperty}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Destination" Binding="{Binding IdArriveProperty}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

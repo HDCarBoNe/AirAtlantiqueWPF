@@ -117,7 +117,7 @@ namespace AirAtlantiqueWPF.Controller
         {
             connection.Close();
             connection.Open();
-            string query = "SELECT v.arrive_reel, v.depart_reel,v.arrive_reel From vols v Inner Join histo_vols h ON h.id_vol = v.idVols AND h.id_client=@id";
+            string query = "SELECT * From vols v Inner Join histo_vols h ON h.id_vol = v.idVols AND h.id_client=@id";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@id", id);
             MySqlDataReader reader = cmd.ExecuteReader();

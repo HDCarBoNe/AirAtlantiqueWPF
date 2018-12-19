@@ -24,6 +24,7 @@ namespace AirAtlantiqueWPF
 
         private void ButtonBase_OnClickHome(object sender, RoutedEventArgs e)
         {
+            this.Width = 900;
             Image im = new Image();
             ImageSource img = new BitmapImage(new Uri("avion.jpg", UriKind.Relative));
             im.Source = img;
@@ -32,21 +33,26 @@ namespace AirAtlantiqueWPF
 
         private void ButtonBase_OnClickAvions(object sender, RoutedEventArgs e)
         {
+            this.Width = 900;
             Main.Content = new Avions();
         }
 
         private void ButtonBase_OnClickVols(object sender, RoutedEventArgs e)
         {
+            this.Width = 1150;
             Main.Content = new Vol();
         }
 
         private void ButtonBase_OnClickAeroport(object sender, RoutedEventArgs e)
         {
+            this.Width = 900;
+
             Main.Content = new  Aeroports();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            this.Width = 1600;
             Main.Content = new Clients();
         }
     }

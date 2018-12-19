@@ -22,7 +22,6 @@ namespace AirAtlantiqueWPF
     /// </summary>
     public partial class Clients : Page
     {
-        Client client;
         ClientBdd cbdd = new ClientBdd();
         ObservableCollection<Client> lc = new ObservableCollection<Client>();
         public Clients()

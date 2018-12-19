@@ -22,7 +22,6 @@ namespace AirAtlantiqueWPF
     /// </summary>
     public partial class Aeroports : Page
     {
-        Aeroport aero;
         AeroportBdd aebdd = new AeroportBdd();
         ObservableCollection<Aeroport> lae = new ObservableCollection<Aeroport>();
 
